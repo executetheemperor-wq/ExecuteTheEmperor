@@ -40,20 +40,26 @@ murder)*
 
 ## His stats
 
-Two lists exist (see [Stats and checks](03-stats-and-checks.md#the-emperor)).
-The ones unique to him:
+He has **many of the same variables as co-conspirators**, plus special ones
+for how much he notices you and how he stands with the people.
+*(OneNote › 1. Variables)* Two lists exist (see
+[Stats and checks](03-stats-and-checks.md#the-emperor)). The ones unique to
+him:
 
 - **Notice** — how much he's paying attention to *you*.
 - **Senate** and **Public** relationship — his standing.
 - **Traits & Ailments**.
 
+*(OneNote › 1. Variables, Stats)*
+
 ## Steering him
 
 Rather than reshaping your team to fit his habits, you can try to **plant
 ideas in his head** and lead him somewhere that suits your plan.
-*(OneNote › 3.3)* On the night, his **trust in you** decides how likely you
-are to be executed if the plot fails — and if you pin it on someone else, he
-may grow **closer** to you. *(OneNote › The night of the murder)*
+*(OneNote › 3.3)* On the night, if the plot fails, the chance you're executed depends on his
+**trust in you**, what you exploited, and whether he thinks you're behind
+it. If you get out in a way that implicates someone else, he may grow
+**closer** to you. *(OneNote › The night of the murder)*
 
 ## Empty pages
 

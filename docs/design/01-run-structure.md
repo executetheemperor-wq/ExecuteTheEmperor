@@ -1,8 +1,10 @@
 # Run structure
 
 A **run** is one plot against one Emperor. In the early drafts that's the
-whole game; later, runs chain into a succession of Emperors (see
-[Between runs](09-between-runs.md)). *(OneNote › 1.1 Pressure)*
+whole game. *(OneNote › 1.1 Pressure)* Later there are many assassinations,
+each putting a new Emperor on the throne — whether those come within one run
+or across runs is open; see [Between runs](09-between-runs.md) and
+[audit CA-44](../audit/contradictions.md#ca-44--one-assassination-then-restart-vs-many-emperors-in-one-run-vs-stick-to-one-and-how-you-get-crowned).
 
 ## The phases
 
@@ -26,7 +28,7 @@ say so. See [audit](../audit.md).
 
 A **Slay the Spire-style path** into events: you choose which events come
 next, with only "slight foresight" rather than a full map — foresight that
-co-conspirators or events can improve. *(OneNote › Basics, 5. The Gameplay
+co-conspirators or events *maybe* improve. *(OneNote › Basics, 5. The Gameplay
 Loop)* More in [Cards, events and pathing](05-cards-events-and-pathing.md).
 
 ## Turns and the clock
@@ -42,7 +44,7 @@ Loop)* More in [Cards, events and pathing](05-cards-events-and-pathing.md).
 | Ending | What the notes say |
 |---|---|
 | **The Emperor dies** | Whether you get away with it, and what your position is afterwards, depend on how you set up the scene. *(The night of the murder)* |
-| **The plot is foiled** | A chance you're executed — based on the Emperor's trust in you, what you exploited, and whether they think you're behind it. Or you slip out and implicate someone else, and the Emperor grows *closer* to you. *(The night of the murder)* |
+| **The plot is foiled** | A chance you're executed — based on the Emperor's trust in you, what you exploited, and whether they think you're behind it. Or, if you slip out in a way that implicates someone else, there's a chance the Emperor grows *closer* to you. *(The night of the murder)* |
 | **Someone rats you out** | If a co-conspirator you left alive betrays you, there's a chance you're ended. *(Basics)* |
 | **Pressure hits 100** | "More or less a lose condition": the assassination runs on autopilot — someone will make a move. You *can* still win, but the odds are against you. *(1.1 Pressure)* |
 

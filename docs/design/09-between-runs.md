@@ -10,7 +10,8 @@ from *why* the run failed — for example:
 
 - no oversight on the palace map;
 - too much suspicion gained in the political phase;
-- betrayal by enemies.
+- "betrayal of enemies" (by them, or of them? See
+  [audit CA-56](../audit/contradictions.md#ca-56--lessons-based-on-what-failed-or-fixed-categories-an-upgrade-ladder-or-a-currency-and-betrayal-of-enemies)).
 
 Each lesson gives a **lasting, permanent upgrade** and a **stat boost** in
 that area for the next run. *(OneNote › Between Runs)*

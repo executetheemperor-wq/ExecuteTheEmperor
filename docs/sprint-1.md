@@ -89,7 +89,8 @@ card layer something to aim at: the right two skills, and a happy crew.
 
 - **0–10 tracks instead of 0–100.** Same idea, fewer fiddly numbers.
 - **d10 or d20 roll-under instead of d100.** Same mechanic, a smaller die.
-- **Pressure as tokens** on a track, or in a bag.
+- **Pressure tokens** are your idea *(Chat › Note 2)*; keeping them on a
+  track, or in a bag, is my suggestion.
 
 ## What we want to learn
 

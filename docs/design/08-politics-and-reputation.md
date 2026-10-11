@@ -6,7 +6,7 @@ rises. *(OneNote › Political Phase)*
 
 ## The political phase
 
-The public half of a run is where you:
+The Political Phase is where you:
 
 - **learn** about the Emperor, the co-conspirators and the state of politics,
   and use it to build out the plan;
@@ -52,7 +52,8 @@ honorifics, your other stats and how the public sees you. *(OneNote ›
 Propaganda Campaigns)* A co-conspirator can bring a one-time propaganda card
 — costs money, raises Pressure, boosts a stat. *(OneNote › 3.2)*
 
-The parent page just says "Campaigns influence". *(OneNote › Campaigns)*
+A separate page, *Campaigns*, stops after two words: "Campaigns influence".
+*(OneNote › Campaigns)*
 
 ## Speeches
 

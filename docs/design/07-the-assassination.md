@@ -5,9 +5,10 @@
 > [decision D1](../decisions.md) and [ideas for the kill](#ideas-for-the-kill-later).
 > *(Chat › Notes 3–4)*
 
-**"The biggest night."** Everything you've built — intel, co-conspirators,
-money, position — gets spent here. It plays as deckbuilding and management,
-not action: dice, stats and cards. *(OneNote › The night of the murder)*
+**"The biggest night"** — so it "needs good intel" before any of its
+mechanics can come into play. *(My reading:* everything you've built comes to
+bear here.*)* It plays as deckbuilding and management, not action: dice,
+stats and cards. *(OneNote › The night of the murder)*
 
 ## Four decisions
 
@@ -39,9 +40,8 @@ event on paper". Depending on your **influence**, you choose:
 
 - which **doors to lock**
 - where to put **spies**
-- who to **bribe** — and which **guards to replace** with your own people
-  *(Basics)*
-- where your **conspirators** stand
+- who to **bribe**
+- where your **conspirators** are placed
 
 These change **the Emperor's route**, **how many guards** he has and **whose
 side they're on**. The aim: steer him into the kill zone, away from his
@@ -51,7 +51,8 @@ guards, or into a trap. *(OneNote › The night of the murder)*
 
 Parts of the palace map are **obscured** — building works, or because you
 don't have the plans. The **closer you get to the Emperor**, the more you
-can do in planning. *(OneNote › Basics)* A between-runs upgrade lets you
+can do in planning — such as locking certain doors, or replacing certain
+guards with ones in your post. *(OneNote › Basics)* A between-runs upgrade lets you
 bribe architects and workers for the plans — and place a free spy in any
 room. *(OneNote › Between Runs)*
 
@@ -85,7 +86,9 @@ The original idea gave phase 3 its own centrepiece: **Reports**.
 The murder is parked, but you've floated how it might eventually work:
 *(Chat › Note 4)*
 
-- **Several win conditions**, rather than one way to kill him.
+- **Maybe many win conditions** ("or SMT idk") — open whether that means
+  several ways to kill him, or ways to win without the kill. See
+  [audit CA-45](../audit/contradictions.md#ca-45--what-counts-as-a-win-one-goal-vs-many-win-conditions).
 - **A final check, like *The Fate of the Fellowship*** — where you still
   have to make one last roll as Frodo even once you've made it to the end.
   For example: **two skills combined must reach a certain value**, then a

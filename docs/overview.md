@@ -12,8 +12,9 @@ You never swing the knife in an action sequence. *Execute the Emperor* is a
 **resource-management deckbuilder**: you gather gold, favour and access;
 recruit co-conspirators, who come into your hand as cards; learn the
 Emperor's habits and weaknesses; and lay out the murder like pieces on a
-chessboard. Then, on the night, the dice decide whether it works and whether
-anyone works out it was you.
+chessboard. Then, on the night, your set-up — played out with dice, stats
+and cards — decides whether it works and whether anyone works out it was
+you. (Exactly how it resolves is still open.)
 
 The aim of a run is to **kill the Emperor without being suspected**. The
 longer aim is to kill enough Emperors that the crown ends up on **your**
@@ -26,8 +27,8 @@ head. *(OneNote › 1. Variables, Basics, The night of the murder)*
   involve some level of pathing." *(OneNote › 1. Variables)*
 - "More deckbuilder/management than actual murder, so dice rolls, stats
   cards etc." *(OneNote › The night of the murder)*
-- A **roguelite** structure: runs end, a framing story carries lessons
-  forward, permanent upgrades accrue. *(OneNote › Between Runs)*
+- *My label:* a **roguelite** structure — runs end, a framing story carries
+  lessons forward, and permanent upgrades accrue. *(OneNote › Between Runs)*
 
 ## Touchstones you named
 
@@ -42,8 +43,11 @@ head. *(OneNote › 1. Variables, Basics, The night of the murder)*
 
 ## Format
 
-**Board game first** — decided 2026-10-11 ([D2](decisions.md)). The video
-game ideas stay in the docs; the table version is where they get tested.
+**Board game first** — decided 2026-10-11 ([D2](decisions.md)). The
+video-game ideas stay in the docs. The notes don't yet say whether the board
+game is a paper prototype of the video game or a product in its own right
+(see [audit CA-68](audit/contradictions.md#ca-68--board-game-first-oct-vs-a-digital-roguelite-feb)).
+**Suggestion:** test the video-game ideas at the table.
 
 ## Setting
 

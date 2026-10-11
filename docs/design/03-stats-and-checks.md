@@ -75,16 +75,21 @@ not yours.)*
   *socialite* likes your Charm and dislikes your militarism — and as they
   warm to you, they think you're gullible and start spinning yarns. A
   *military man* likes you less the more charming you are.
-- Their **traits are shown to you**, so you can weigh it up: more Charm to
-  please the socialite, at the cost of the soldier?
+- The traits of **certain** co-conspirators are shown to you, so you can make
+  educated choices: more Charm to please the socialite, at the cost of the
+  soldier? (Others may stay hidden — my reading; see
+  [audit CA-61](../audit/contradictions.md#ca-61--show-lots-of-information-sts-vs-lying-hidden-traits-hidden-maps-and-unreliable-reports).)
+- The aim: this should **both build synergy in the plot and add risk to
+  manage**, as you're eventually forced to draft a wide pool of
+  co-conspirators and keep them all happy.
 
 *(OneNote › 1. Variables)*
 
 ## Co-conspirators change your numbers
 
-Every co-conspirator adds their own standing onto your adjusted base stats —
-an influential one raises your Influence, which means more and better
-Influence rolls. *(OneNote › 3.1 The Effect of Co-Conspirators on Stats)*
+Every co-conspirator adds their own standing onto your adjusted base stats,
+**improving or worsening** some of them — an influential one raises your
+Influence, which means more and better Influence rolls. *(OneNote › 3.1 The Effect of Co-Conspirators on Stats)*
 
 ## Gaps
 

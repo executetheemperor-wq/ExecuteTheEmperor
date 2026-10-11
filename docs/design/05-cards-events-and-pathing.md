@@ -44,8 +44,8 @@ omen means less suspicion falls on the co-conspirator.
 ## Pathing
 
 A **Slay the Spire-style path**: you choose which events come next. Not a
-full map — "some slight foresight", which co-conspirators or events can
-improve. *(OneNote › Basics, 5. The Gameplay Loop)*
+full map — "some slight foresight", which co-conspirators or events might
+improve ("maybe", in the notes). *(OneNote › Basics, 5. The Gameplay Loop)*
 
 ## Show the numbers
 

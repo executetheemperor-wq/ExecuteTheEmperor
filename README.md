@@ -32,6 +32,11 @@ flowchart LR
     PRESS{{"Pressure +1 a turn<br/>100 = autopilot"}} -.-> NIGHT
 ```
 
+*One possible shape. The notes also describe three phases, never fix the
+order, leave the Plotting page empty, and don't settle what follows a
+successful kill — see [audit CA-01](docs/audit/contradictions.md#ca-01--three-phases-in-basics-vs-four-phase-pages)
+and [CA-44](docs/audit/contradictions.md#ca-44--one-assassination-then-restart-vs-many-emperors-in-one-run-vs-stick-to-one-and-how-you-get-crowned).*
+
 | System | In one line |
 |---|---|
 | [**Pressure**](docs/design/02-pressure.md) | A 0–100 clock that's easy to raise, almost impossible to lower — better recruits as it climbs, blackmail and chaos as it peaks. |
@@ -42,8 +47,9 @@ flowchart LR
 | [**Politics**](docs/design/08-politics-and-reputation.md) | Build your career, earn honorifics, run propaganda — rivals are climbing too. |
 | [**Between runs**](docs/design/09-between-runs.md) | A failed plot was a story read to a young man; he picks a lesson → permanent upgrade. |
 
-There's also a [**board game** take](docs/design/10-board-game.md): pressure
-tokens build up, and once they hit a value you have to plot.
+It's being designed [**board game first**](docs/design/10-board-game.md)
+([D2](docs/decisions.md)) — in that version, pressure tokens build up, and
+once they hit a value you have to plot.
 
 ## What's in here
 

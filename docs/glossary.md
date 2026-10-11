@@ -33,9 +33,9 @@ repo rather than words from the notes — rename freely.
 |---|---|---|
 | **Co-conspirator** | A recruit to the plot, represented as a card. | [Co-conspirators](design/04-co-conspirators.md) |
 | **Draft pool** | The changing selection of co-conspirators you can recruit; persists between rounds. | [Co-conspirators](design/04-co-conspirators.md) |
-| **Trait** | A co-conspirator's (or Emperor's) quirk that bends how stats affect them — e.g. socialite, military man. | [Stats](design/03-stats-and-checks.md) |
+| **Trait** | A co-conspirator's quirk that bends how stats affect them — e.g. socialite, military man. (The Emperor also has "Traits & Ailments", but the notes don't say what they do.) | [Stats](design/03-stats-and-checks.md) |
 | **Sticky** | Co-conspirators are very hard to remove once they know the plan. | [Co-conspirators](design/04-co-conspirators.md) |
-| **Grasp** | From the first note: how tightly you hold someone; the tighter, the more they "need to be part of it". | [Co-conspirators](design/04-co-conspirators.md) |
+| **Grasp** | From the first note: how tightly you hold someone. The tighter your grasp, "the more they either need to be part of it or not" (which way it cuts is open). | [Co-conspirators](design/04-co-conspirators.md) |
 | **Rat you out** | A co-conspirator betrays you — a chance you're ended. | [Co-conspirators](design/04-co-conspirators.md) |
 | **The Shadowy Circle** | The forum where the conspiracy meets and discusses the plot. | [Co-conspirators](design/04-co-conspirators.md) |
 | **Key figures** | Rivals vying for power alongside you. | [Politics](design/08-politics-and-reputation.md) |

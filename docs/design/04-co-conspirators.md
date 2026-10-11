@@ -15,6 +15,8 @@ interactions, and strengthen the plot. *(OneNote › 3. Co-Conspirators)*
   they may no longer be on offer.
 - **Pressure shapes the pool.** More Pressure brings better candidates, up
   to a point; too much brings unstable, unreliable ones.
+- **The crew grows.** Eventually you're forced to draft a *wide* pool and
+  keep all of them happy. *(OneNote › 1. Variables)*
 - **Honorifics change who comes knocking.** Known as a cheater? Some
   candidates will want you to lose a gambling match to them, or pay heavily
   to prove yourself — and more people with a similar trait will seek you
@@ -31,7 +33,9 @@ interactions, and strengthen the plot. *(OneNote › 3. Co-Conspirators)*
 | **Money** | Some simply cost money ("hiring" them). |
 | **Charm** | Win them over. *(Basics)* |
 | **Blackmail** | Spend money **and Pressure** to force them on side — at the cost of their happiness, more suspicion, and still more Pressure. |
-| **Uninvited** | Some join **without your consent**, especially as Pressure rises — and may blackmail *you*. *(1.1 Pressure)* |
+| **Uninvited** | Some join **without your consent**, especially as Pressure rises — and may blackmail *you*. *(3. Co-Conspirators; blackmail: 1.1 Pressure)* |
+
+*(OneNote › 3. Co-Conspirators unless noted)*
 
 ## What they do for you
 
@@ -47,8 +51,9 @@ interactions, and strengthen the plot. *(OneNote › 3. Co-Conspirators)*
 
 ### Example: two ways to the same Emperor *(3.3)*
 
-You've learned he spends his evenings in the palace, heavily guarded by the
-Praetorians, but sneaks out at night to watch plays and drink.
+You've learned he enjoys the company of actors, spends his evenings in the
+palace heavily guarded by the Praetorians, but sneaks out at night to watch
+plays and drink.
 
 | | The theatre plan | The palace plan |
 |---|---|---|
@@ -66,16 +71,20 @@ Praetorians, but sneaks out at night to watch plays and drink.
 - **Traits clash.** Military men may not get on with the acting set; the
   socialite and the soldier want opposite things from you.
   *(1. Variables, 3.3)*
-- From the earliest notes: each has values such as **hate**, and the tighter
-  your **grasp** on them, "the more they either need to be part of it or
-  not". *(Basics)*
+- From the earliest notes: each has "different values of like hate" (*my
+  reading:* a like↔hate scale towards you), and the tighter your **grasp** on
+  them, "the more they either need to be part of it or not".
+  *(OneNote › Basics; Chat › Note 1)*
 
 ## The conspiracy meeting
 
-The secret side of phase 1 is a **forum — the "shadowy circle"** — where the
-plot is discussed. In meetings you can sway the pact's decisions, **set up
-the room** to influence how you're regarded, and push people in the
-directions you want. *(Basics, Conspiracy Phase)*
+In phase 1 there's a **forum — the "shadowy circle"** — where the plot is
+discussed. *(OneNote › Basics)* The Conspiracy Phase page describes
+meetings where you can sway the pact's decisions, **set up the room** to
+influence how you're regarded, and push people in the directions you want.
+*(OneNote › Conspiracy Phase)* *My reading* is that these are the same
+meeting, but the notes don't say so — see
+[Run structure](01-run-structure.md#the-phases).
 
 ## Sticky: once in, hard to get out
 
@@ -101,7 +110,7 @@ alive" as a normal choice; the later design makes killing a last resort. See
 ## Pivoting
 
 As you learn more about the Emperor, the ideal team changes — but your team
-is sticky. Built a deck of soldiers, then discovered he never goes on
+is sticky. Built a deck of soldiers, then discovered he rarely goes on
 campaign (or soldiers are too pricey around there)? You may have to pivot to
 poisoning at the theatre, with the soldiers and actors at each other's
 throats while Pressure climbs. Or try the other way round: **plant ideas in
@@ -128,6 +137,7 @@ poisoner · rich briber · Praetorian contact.
 - What a co-conspirator card actually shows (stats, traits, cards, access,
   cost).
 - The full list of traits and how each one bends the stat relationships.
-- How "grasp" and "hate" from the first note map onto Happiness and
-  Suspicion in the later design.
+- How "grasp" and the "like hate" values from the first note map onto
+  Happiness and Suspicion in the later design (see
+  [audit CA-14](../audit/contradictions.md#ca-14--happiness-vs-likeability-vs-likehate)).
 - What exactly happens when someone rats you out.
