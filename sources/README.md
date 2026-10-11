@@ -15,7 +15,9 @@ pulled into this repo. Kept deliberately vague about personal accounts —
 
 | Where | Status |
 |---|---|
-| **OneNote notebook** (personal OneDrive) | ⏳ The main source — not readable from the tools used to seed this repo. Export the section (File → Export → PDF or Word) into Google Drive, or paste the pages into a new file in `ideas/raw/`. |
+| **OneNote notebook** (personal OneDrive) | ⏳ The main source — not readable from the tools used to seed this repo. Copy-paste each page (Ctrl+A / Cmd+A) into a new file in `ideas/raw/`; screenshot handwriting or drawings. |
+| **Pub-quiz concept page** (work OneNote, Apr 2025) | ❔ Possible origin of the idea: a "god emperor of the tower" making demands on a village, with adventurers acting against him. Only a snippet was searchable — copy the full page in if it's related. |
+| **Untitled page** (work OneNote, Mar 2026) | ❔ No searchable text — maybe handwritten. Check by eye. |
 | **OneNote backup** (a `.7z` archive in Google Drive → Backup) | ⏳ Probably a copy of the notebooks. Too big to open remotely; extract locally if the live notebook is missing anything. |
 | **Voice-memo backup** (a `.7z` archive in Google Drive → Backup) | ❔ Unchecked. Only worth a listen if ideas were ever recorded out loud. |
 
