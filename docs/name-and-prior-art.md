@@ -26,5 +26,6 @@ Worth a look, to see what's been done and how this one differs.
 | *Blood on the Clocktower* | Board game (social deduction) | Executions, and players' unreliable accounts of what happened. |
 | *SHUG* | Board game | Has an alternative "Kill the King" win; the King advances each turn like a timer. |
 
-Touchstones to react to are also listed in
-[open question 30](open-questions.md#touchstones).
+The games **you** named as influences — Slay the Spire, Darkest Dungeon II,
+Call of Cthulhu, Five Nights at Freddy's — are in the
+[overview](overview.md#touchstones-you-named).

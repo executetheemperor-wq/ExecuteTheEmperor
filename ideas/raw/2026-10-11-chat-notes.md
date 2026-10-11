@@ -7,6 +7,10 @@ and interpretations go in `docs/`, new thoughts go in `ideas/inbox.md`.
 Headings are labels added when filing; only the quoted (`>`) text is
 verbatim.
 
+Note 1 turned out to be a copy of the OneNote **"Basics"** page (minus its
+last line) — see [`2026-02-onenote-notebook.md`](2026-02-onenote-notebook.md).
+Note 2 (the board game) appears only here.
+
 ---
 
 ## Note 1 — the three phases

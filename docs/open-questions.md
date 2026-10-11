@@ -1,105 +1,74 @@
 # Open questions
 
-Things the notes leave open. Nothing here is decided — these are prompts for
-the next brainstorm. Where a question lists options, they're **suggestions**,
-not your ideas; strike through or answer them as you go.
+Decisions still to make. When one's answered, write the answer into the
+matching design doc and delete the question. Contradictions between the
+notes are in the [audit](audit.md).
 
-When a question gets answered, move the answer into the matching design doc
-and delete the question.
+## Answered by the notebook
 
----
+These were open before the OneNote notebook was imported:
 
-## The big ones
+- **Setting?** Imperial Rome — Senate, Praetorian Guard, Colosseum, the Ides.
+- **Genre?** Resource-management deckbuilder with roguelite runs and Slay
+  the Spire-style pathing.
+- **Who are you?** An ambitious political figure who could become Emperor
+  (details still open — see Q3).
+- **What are a person's "values"?** 0–100 variables: Happiness, Suspicion,
+  Gullibility (and more).
+- **What builds pressure?** +1 a turn, cards, events, co-conspirators.
+- **What are the ways to kill?** A first list of areas exists; methods
+  include poison and bribed guards.
+- **Touchstones?** Slay the Spire, Darkest Dungeon II, Call of Cthulhu, Five
+  Nights at Freddy's.
 
-1. **Video game, board game, or both?** The three phases (Forum / Palace
-   map / Reports) read like screens in a digital game; the pressure tokens
-   are explicitly a board-game idea. Same game in two formats, or two games
-   sharing a theme?
-2. **Who are you?** A noble, a general, a priest, a disgraced heir, a
-   nobody? Does it change between runs?
-3. **What's the setting?** Historical (Rome — *Emperor* series, Caesar),
-   fantasy, sci-fi (*God Emperor*), or deliberately unnamed?
-4. **Single player or multiplayer?** A forum of co-conspirators and
-   unreliable reports both suggest other players could fill those roles —
-   or they could all be AI characters.
+## Decide first (needed for a prototype)
 
-## Phase 1 — Conspiracy
+1. **Three phases or four**, and in what order? *(audit C1)*
+2. **What is a turn?** *(audit G1)*
+3. **Who is the player character**, and what do they start with?
+4. **The core stat list.** *(audit C2)*
+5. **How does the night of the murder resolve?** *(audit G3)*
+6. **How do you learn about the Emperor?** *(audit G2)*
+7. **What does a card look like**, and how is it drawn? *(audit G4)*
 
-5. **Are "values" several stats, or levels of hate?** ("different values of
-   like hate"). If several, what besides hate — hate of the Emperor? Of
-   you? Fear, greed, loyalty, ambition?
-6. **What exactly is "grasp", and what does it decide?** The note says *"the
-   more you have them in your grasp the more they either need to be part of
-   it or not."* Does high grasp lock someone into the plot, or make the
-   choice binary (all-in or out)?
-7. **Do hire / charm / blackmail cost different things or set different
-   values?** e.g. hired people are reliable until outbid; charmed people are
-   loyal but leaky; blackmailed people are in your grasp but hate you.
-8. **What makes someone rat you out**, and how is "a chance of being ended"
-   rolled — per person, per phase, scaled by their values?
-9. **Does executing someone cost anything** (suspicion, fewer hands,
-   fear in the rest of the circle)?
-10. **What happens in the forum itself?** Is it just a recruitment screen,
-    or do conversations in the Shadowy Circle carry information (and leaks)?
+## Co-conspirators
 
-## Phase 2 — Planning
+8. Is there a cap on how many you can have?
+9. What does a co-conspirator card show?
+10. Are "hate" and "grasp" from the first note still part of the design?
+    *(audit C7)*
+11. Executing them: routine or last resort? *(audit C5)*
+12. What happens when one rats you out?
 
-11. **What are the ways to kill the Emperor**, and what bonus does each
-    give? (poison, blade, accident, fire, mob, …)
-12. **Where does funding come from**, and what does it buy?
-13. **How do you reveal obscured parts of the palace map?** Finding the
-    plans, bribing builders, scouting in person?
-14. **What counts as "getting closer" to the Emperor**, and how do you do
-    it? A position at court, favour, physical access?
-15. **What else can you do besides locking doors and swapping guards?**
-    (the note ends with *etc.*)
-16. **"Replacing certain guards with ones in your post"** — does that mean
-    guards in your pay, or guards from your own household / co-conspirators?
+## The Emperor
 
-## Phase 3 — The Murder
+13. Generated Emperors (random traits) or a fixed cast — historical or
+    invented?
+14. What's the difference between traits, tendencies and weaknesses?
+15. Does the Emperor act against you when Notice or Suspicion is high?
 
-17. **What decides whether you can be there — or see it even when you
-    are?** Your position, your suspicion level, the way chosen?
-18. **What does suspicion do?** Does it carry into the next run, raise the
-    rat-out chance, lock you out of the next murder?
-19. **What's in a report?** Who writes them, how reliable are they, and can
-    they lie on purpose?
-20. **What are the "plots" that grow or don't?** Counter-plots against you?
-    Other factions' plots? The next conspiracy taking root?
-21. **Can the murder fail?** If the Emperor survives, what then?
+## The assassination
 
-## The Crown — restart loop
+16. The full list of methods, and the bonus each gives.
+17. How do reports work, and how unreliable are they?
+18. What decides whether you *can* be present?
 
-22. **How many Emperors?** Fixed, chosen at setup, or rising?
-23. **What carries over between Emperors?** Co-conspirators, grasp, hate,
-    suspicion, palace knowledge, funding, unlocks?
-24. **Who's the next Emperor?** Someone from your circle? A rival?
-    Someone you put there?
-25. **Is being "ended" the end of the whole game, or just this run?**
+## Politics
+
+19. Who are the rival "key figures"?
+20. What decides who becomes the next Emperor — and when is it you?
+21. What does public opinion change?
+
+## Between runs
+
+22. Who is the young man reading the book — and is he the next player
+    character?
+23. Does the book appear only after failure? *(audit C6)*
+24. How many Emperors to be crowned? What's *x* for upgrades?
+25. What carries over between Emperors in the same game?
 
 ## Board game
 
-26. **What builds pressure?** Turns passing, actions taken, events,
-    other players?
-27. **What's the value, and what does "you have to plot" mean at the
-    table?** You're forced into Phase 2? Forced to make a move against the
-    Emperor now?
-28. **What gets unlocked as you go**, and what triggers each unlock?
-29. **Does the pressure-token idea also belong in the video game?** It
-    could be the bridge between the two formats.
-
-## Touchstones
-
-30. **Which existing games and books is it closest to — and how is it
-    different?** Suggestions to react to (not from your notes):
-    - *Blood on the Clocktower* — social deduction; who gets executed, and
-      who's lying in their account of the night.
-    - *SHUG* — a board game whose alternative win is "Kill the King"; the
-      King marches on you each turn like a timer (compare pressure tokens).
-    - *Slay the Spire* and other roguelikes — run, die or win, restart,
-      unlock things as you go (compare the restart loop and board-game
-      unlocks).
-    - Conn Iggulden's *Emperor* series / the death of Julius Caesar — the
-      original conspiracy against an emperor.
-    - *God Emperor of Dune*, *V for Vendetta* — the tyrant at the centre,
-      and the plot to bring them down.
+26. Player count and mode — solo, competitive (rival conspirators), co-op?
+27. What does "you have to plot" mean as a rule?
+28. What gets unlocked, and when?

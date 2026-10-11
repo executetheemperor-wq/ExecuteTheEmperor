@@ -10,15 +10,15 @@ pulled into this repo. Kept deliberately vague about personal accounts —
 |---|---|---|---|
 | 2026-10-11 | Chat notes | The three phases, the restart/crown loop, the forum / palace map / reports for each phase | [`ideas/raw/2026-10-11-chat-notes.md`](../ideas/raw/2026-10-11-chat-notes.md) |
 | 2026-10-11 | Chat notes | Board game: pressure tokens, unlocks | [`ideas/raw/2026-10-11-chat-notes.md`](../ideas/raw/2026-10-11-chat-notes.md) |
+| 2026-10-11 | **OneNote notebook** (personal OneDrive, written 9–17 Feb 2026), exported to PDF | The main design notes: 30 pages across *Design and Ideas*, *Resources*, *Systems and Interactions* and *First Design*. The chat notes' first note is a copy of its "Basics" page. | [`ideas/raw/2026-02-onenote-notebook.md`](../ideas/raw/2026-02-onenote-notebook.md) (transcript, checked word-for-word against the PDF) and [`.pdf`](../ideas/raw/2026-02-onenote-notebook.pdf) (original) |
 
 ## Still to import
 
 | Where | Status |
 |---|---|
-| **OneNote notebook** (personal OneDrive) | ⏳ The main source — not readable from the tools used to seed this repo. Copy-paste each page (Ctrl+A / Cmd+A) into a new file in `ideas/raw/`; screenshot handwriting or drawings. |
 | **Pub-quiz concept page** (work OneNote, Apr 2025) | ❔ Possible origin of the idea: a "god emperor of the tower" making demands on a village, with adventurers acting against him. Only a snippet was searchable — copy the full page in if it's related. |
 | **Untitled page** (work OneNote, Mar 2026) | ❔ No searchable text — maybe handwritten. Check by eye. |
-| **OneNote backup** (a `.7z` archive in Google Drive → Backup) | ⏳ Probably a copy of the notebooks. Too big to open remotely; extract locally if the live notebook is missing anything. |
+| **OneNote backup** (a `.7z` archive in Google Drive → Backup) | ❔ Probably an older copy of the notebooks. Only worth opening if pages are missing from the export. |
 | **Voice-memo backup** (a `.7z` archive in Google Drive → Backup) | ❔ Unchecked. Only worth a listen if ideas were ever recorded out loud. |
 
 ## Searched — nothing new found (2026-10-11)

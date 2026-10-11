@@ -1,7 +1,8 @@
 # Execute the Emperor
 
-> Recruit a conspiracy. Plan the murder. Be there — or rely on the reports.
-> Do it again — until the crown is yours.
+> A deckbuilder about killing the Emperor of Rome — and getting away with it.
+> Recruit co-conspirators, learn his weaknesses, set the scene like a
+> chessboard, and beat the clock before the plot slips out of your hands.
 
 **Status:** 🌱 idea stage. Nothing is being built yet — this repo is the one
 place every idea for the game lives.
@@ -10,42 +11,49 @@ place every idea for the game lives.
 
 ## The game in one screen
 
-You're building a conspiracy to kill the Emperor. Each Emperor takes three
-phases, each built around one thing — a forum, a palace map, reports
-(*screens in a video game? see [open question 1](docs/open-questions.md#the-big-ones)*):
-
-| # | Phase | Centrepiece | What you do |
-|---|---|---|---|
-| 1 | [**Conspiracy**](docs/design/01-conspiracy.md) | The Shadowy Circle *(forum)* | Hire, charm or blackmail co-conspirators. Execute them or leave them alive — but anyone left alive might rat you out. |
-| 2 | [**Planning**](docs/design/02-planning.md) | The Imperial Palace *(map)* | Choose how the Emperor dies; fund it; get closer; lock doors, swap guards. Parts of the palace are obscured. |
-| 3 | [**The Murder**](docs/design/03-the-murder.md) | Reports | You can see it if you're there — but you may not be able to. Being there raises suspicion, but you see exactly how people act; otherwise you rely on word of mouth, and plots can be growing or not depending on how you interpret the reports. |
-
-Then a new Emperor takes the throne and it starts again.
-**Kill enough Emperors and you're [crowned yourself](docs/design/04-the-crown.md).**
+You're an ambitious Roman plotting to assassinate the Emperor. It's a
+**resource-management deckbuilder with roguelite runs**, not an action game.
+*(Overview: [docs/overview.md](docs/overview.md))*
 
 ```mermaid
 flowchart LR
-    C["1 · Conspiracy<br/><i>The Shadowy Circle</i>"] --> P["2 · Planning<br/><i>Imperial Palace map</i>"]
-    P --> M["3 · The Murder<br/><i>Reports</i>"]
-    M -->|new Emperor| C
-    M -->|enough Emperors dead| W(["👑 Crowned"])
-    C -.->|"ratted out: a chance"| L(["☠ Ended?"])
+    POL["Political phase<br/><i>events · career · intel</i>"] --> CON["Conspiracy phase<br/><i>the Shadowy Circle</i>"]
+    CON --> PLAN["Plotting<br/><i>area · method · area plan</i>"]
+    PLAN --> NIGHT["The night of the murder<br/><i>present, or rely on reports</i>"]
+    NIGHT -->|"success: a new Emperor…"| POL
+    NIGHT -->|"…or it's you"| CROWN(["👑 Crowned"])
+    NIGHT -->|foiled| BOOK["The book closes<br/><i>pick 1 of 3 lessons</i>"]
+    BOOK --> POL
+    PRESS{{"Pressure +1 a turn<br/>100 = autopilot"}} -.-> NIGHT
 ```
 
-There's also a [**board game** take](docs/design/05-board-game.md):
-pressure tokens build up, and once they hit a value you have to plot.
+| System | In one line |
+|---|---|
+| [**Pressure**](docs/design/02-pressure.md) | A 0–100 clock that's easy to raise, almost impossible to lower — better recruits as it climbs, blackmail and chaos as it peaks. |
+| [**Co-conspirators**](docs/design/04-co-conspirators.md) | Drafted as cards; they bring stats, cards (even curses), and access — and they're sticky. |
+| [**Stats and checks**](docs/design/03-stats-and-checks.md) | Everything 0–100; d100 roll-under checks; traits bend how stats affect each person. |
+| [**The Emperor**](docs/design/06-the-emperor.md) | The target. Intel cards like *Creature of Habit* or *Partially Blind* decide which plans are possible. |
+| [**The assassination**](docs/design/07-the-assassination.md) | Pick area, method and conspirators; lock doors, plant spies, bribe guards; be there or rely on reports. |
+| [**Politics**](docs/design/08-politics-and-reputation.md) | Build your career, earn honorifics, run propaganda — rivals are climbing too. |
+| [**Between runs**](docs/design/09-between-runs.md) | A failed plot was a story read to a young man; he picks a lesson → permanent upgrade. |
+
+There's also a [**board game** take](docs/design/10-board-game.md): pressure
+tokens build up, and once they hit a value you have to plot.
 
 ## What's in here
 
 | Path | What it is |
 |---|---|
-| [`docs/design/`](docs/design/) | One doc per phase, plus the restart loop and the board game. Each starts with your notes word for word, then a tidied-up version. |
-| [`docs/open-questions.md`](docs/open-questions.md) | Everything the notes leave open — the agenda for the next brainstorm. |
-| [`docs/glossary.md`](docs/glossary.md) | Working vocabulary (grasp, suspicion, pressure tokens, …). |
-| [`docs/name-and-prior-art.md`](docs/name-and-prior-art.md) | Is the name taken? Which existing games are closest? |
-| [`ideas/raw/`](ideas/raw/) | Original notes, verbatim. Never edited. |
+| [`docs/overview.md`](docs/overview.md) | The pitch, genre, setting, touchstones and design principles. |
+| [`docs/design/`](docs/design/) | One doc per system, written up from the notes, with gaps marked. |
+| [`docs/audit.md`](docs/audit.md) | Where the notes contradict each other, what's missing, empty pages. |
+| [`docs/open-questions.md`](docs/open-questions.md) | Decisions still to make — the agenda for the next session. |
+| [`docs/glossary.md`](docs/glossary.md) | Working vocabulary. |
+| [`docs/resources.md`](docs/resources.md) | Godot courses and links. |
+| [`docs/name-and-prior-art.md`](docs/name-and-prior-art.md) | Is the name taken? Which games are closest? |
+| [`ideas/raw/`](ideas/raw/) | Original notes, verbatim — the OneNote notebook (PDF + transcript) and chat notes. Never edited. |
 | [`ideas/inbox.md`](ideas/inbox.md) | Drop new ideas here. |
-| [`sources/`](sources/) | Where ideas have been found (and searched for) across Drive, OneDrive, Gmail, etc. |
+| [`sources/`](sources/) | Where ideas have been found, and what's still to import. |
 
 ## Adding ideas
 
@@ -54,4 +62,4 @@ pressure tokens build up, and once they hit a value you have to plot.
 2. Longer brain-dumps (a pasted OneNote page, a voice-note transcript) go in
    `ideas/raw/` as a new dated file.
 3. When sorting, fold ideas into the matching design doc and tick off
-   anything they answer in `docs/open-questions.md`.
+   anything they answer in [`docs/open-questions.md`](docs/open-questions.md).
