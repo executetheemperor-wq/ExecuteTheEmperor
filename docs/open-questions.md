@@ -1,8 +1,9 @@
 # Open questions
 
 Decisions still to make. When one's answered, write the answer into the
-matching design doc and delete the question. Contradictions between the
-notes are in the [audit](audit.md).
+matching design doc and [decisions](decisions.md), and delete the question.
+The [audit](audit.md) has the full picture — 72 contradictions and 57 gaps
+— and its "Resolve first" list is the Sprint 1 agenda.
 
 ## Answered by the notebook
 
@@ -35,21 +36,23 @@ These were open before the OneNote notebook was imported:
 
 ## Decide first (needed for a prototype)
 
-1. **Three phases or four**, and in what order? *(audit C1)*
-2. **What is a turn?** *(audit G1)*
+0. **What does "card building" mean** — building the deck card by card, or by
+   recruiting people (whose cards come as a locked bundle)? *(audit [CA-37](audit/contradictions.md#ca-37--deckbuilder-at-heart-and-card-building-vs-cannot-add-or-remove-cards))*
+1. **Three phases or four**, and in what order? *(audit [CA-01](audit/contradictions.md#ca-01--three-phases-in-basics-vs-four-phase-pages))*
+2. **What is a turn?** *(audit [CA-04](audit/contradictions.md#ca-04--what-is-a-turn-turn-vs-action-vs-day-vs-calendar-date-vs-time-of-day))*
 3. **Who is the player character**, and what do they start with?
-4. **The core stat list.** *(audit C2)*
-5. ~~How does the night of the murder resolve?~~ Parked ([D1](decisions.md)) — Sprint 1 uses a [placeholder ending](sprint-1.md#placeholder-ending). *(audit G3)*
-6. **How do you learn about the Emperor?** *(audit G2)*
-7. **What does a card look like**, and how is it drawn? *(audit G4)*
+4. **The core stat list.** *(audit [CA-09](audit/contradictions.md#ca-09--two-different-player-stat-lists-stats-page-vs-1-variables))*
+5. ~~How does the night of the murder resolve?~~ Parked ([D1](decisions.md)) — Sprint 1 uses a [placeholder ending](sprint-1.md#placeholder-ending). *(audit [CA-60](audit/contradictions.md))*
+6. **How do you learn about the Emperor?** *(audit [EM-01](audit/gaps.md))*
+7. **What does a card look like**, and how is it drawn? *(audit [CA-36](audit/contradictions.md#ca-36--card-at-three-levels-co-conspirators-as-cards-the-cards-they-bring-and-intel-cards), [CA-38](audit/contradictions.md#ca-38--how-cards-are-drawn-by-tag-for-each-event-or-from-a-hand-you-carry))*
 
 ## Co-conspirators
 
 8. Is there a cap on how many you can have?
 9. What does a co-conspirator card show?
 10. Are "hate" and "grasp" from the first note still part of the design?
-    *(audit C7)*
-11. Executing them: routine or last resort? *(audit C5)*
+    *(audit [CA-14](audit/contradictions.md#ca-14--happiness-vs-likeability-vs-likehate))*
+11. Executing them: routine or last resort? *(audit [CA-28](audit/contradictions.md))*
 12. What happens when one rats you out?
 
 ## The Emperor
@@ -75,7 +78,7 @@ These were open before the OneNote notebook was imported:
 
 22. Who is the young man reading the book — and is he the next player
     character?
-23. Does the book appear only after failure? *(audit C6)*
+23. Does the book appear only after failure? *(audit [CA-44](audit/contradictions.md))*
 24. How many Emperors to be crowned? What's *x* for upgrades?
 25. What carries over between Emperors in the same game?
 

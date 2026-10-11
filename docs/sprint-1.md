@@ -102,6 +102,15 @@ card layer something to aim at: the right two skills, and a happy crew.
 
 ## Decisions needed before the first playtest
 
+The [audit's "Resolve first" list](audit.md#resolve-first--for-sprint-1) is
+the long version of this; its gaps pass also proposed
+[starting defaults](audit/gaps.md#suggested-minimum-for-a-one-assassination-paper-prototype)
+for most of these.
+
+0. **What "card building" means.** You can't add or remove a
+   co-conspirator's cards, only the person — so is the deck built card by
+   card, or by recruiting? Loop B above leans into "by recruiting". *(audit
+   [CA-37](audit/contradictions.md#ca-37--deckbuilder-at-heart-and-card-building-vs-cannot-add-or-remove-cards))*
 1. **What is a turn?** Pick one of the candidate loops above (or mix them).
 2. **The first 8–10 co-conspirators**: a cost, stat modifiers, 2–3 cards
    and one trait each.

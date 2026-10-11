@@ -54,7 +54,7 @@ tokens build up, and once they hit a value you have to plot.
 | [`docs/decisions.md`](docs/decisions.md) | Decisions made so far. |
 | [`docs/sprint-1.md`](docs/sprint-1.md) | Draft plan for the first sprint: the card layer, on paper. |
 | [`docs/design-review.md`](docs/design-review.md) | Claude's take: what's strong, what's risky. |
-| [`docs/audit.md`](docs/audit.md) | Where the notes contradict each other, what's missing, empty pages. |
+| [`docs/audit.md`](docs/audit.md) | Where the notes contradict each other, what's missing, empty pages — full lists in [`docs/audit/`](docs/audit/). |
 | [`docs/open-questions.md`](docs/open-questions.md) | Decisions still to make — the agenda for the next session. |
 | [`docs/glossary.md`](docs/glossary.md) | Working vocabulary. |
 | [`docs/resources.md`](docs/resources.md) | Godot courses and links. |
