@@ -1,6 +1,6 @@
 # Phase 2 — Planning
 
-**Screen:** Map of the Imperial Palace
+**Centrepiece:** Map of the Imperial Palace
 **Job:** decide how the Emperor dies, and rig the palace to make it happen.
 
 ## Your notes
@@ -22,7 +22,7 @@ You choose **how** to kill the Emperor.
 
 The phase is played on a **map of the Imperial Palace**.
 
-The map is incomplete. **Parts can be obscured**, for example by:
+**Parts can be obscured**, for example by:
 
 - building works
 - not having the plans

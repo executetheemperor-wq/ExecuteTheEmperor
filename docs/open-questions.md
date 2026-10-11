@@ -25,8 +25,9 @@ and delete the question.
 
 ## Phase 1 — Conspiracy
 
-5. **What values does each person have besides hate?** Hate of the Emperor?
-   Of you? Fear, greed, loyalty, ambition?
+5. **Are "values" several stats, or levels of hate?** ("different values of
+   like hate"). If several, what besides hate — hate of the Emperor? Of
+   you? Fear, greed, loyalty, ambition?
 6. **What exactly is "grasp", and what does it decide?** The note says *"the
    more you have them in your grasp the more they either need to be part of
    it or not."* Does high grasp lock someone into the plot, or make the
@@ -57,8 +58,8 @@ and delete the question.
 
 ## Phase 3 — The Murder
 
-17. **What decides whether you *can* be there?** Your position, your
-    suspicion level, the method chosen?
+17. **What decides whether you can be there — or see it even when you
+    are?** Your position, your suspicion level, the way chosen?
 18. **What does suspicion do?** Does it carry into the next run, raise the
     rat-out chance, lock you out of the next murder?
 19. **What's in a report?** Who writes them, how reliable are they, and can

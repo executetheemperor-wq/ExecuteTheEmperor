@@ -22,8 +22,7 @@ are two products or one design in two formats isn't decided yet — see
 ### Pressure tokens
 
 - **Pressure tokens build up.**
-- **Once pressure hits a value, you have to plot.** Plotting isn't optional
-  forever — pressure forces your hand.
+- **Once pressure hits a value, you have to plot.**
 
 ### Unlocks
 

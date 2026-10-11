@@ -4,10 +4,12 @@ Source: typed straight into a Claude Code chat while seeding this repo.
 Kept **verbatim**, original spelling included ("emporer"). Don't edit this
 file — it's the source of truth the design docs are built from. Corrections
 and interpretations go in `docs/`, new thoughts go in `ideas/inbox.md`.
+Headings are labels added when filing; only the quoted (`>`) text is
+verbatim.
 
 ---
 
-## Note 1 — the three phases (video game)
+## Note 1 — the three phases
 
 > Different phases.
 >

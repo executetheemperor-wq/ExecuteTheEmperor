@@ -1,6 +1,6 @@
 # Phase 1 — Conspiracy
 
-**Screen:** The Shadowy Circle (a forum)
+**Centrepiece:** The Shadowy Circle (a forum)
 **Job:** build the plot by bringing people into it.
 
 ## Your notes
@@ -13,8 +13,9 @@
 
 ### The Shadowy Circle
 
-The whole phase plays out in a **forum** — the secret meeting place where
-the conspiracy discusses the plot.
+The phase has a **forum**, the Shadowy Circle, where the plot is discussed
+("Forum shadowy circle, where discuss the plot in first phase").
+*What else happens there? See open question 10.*
 
 ### Recruiting co-conspirators
 
@@ -28,12 +29,13 @@ You go looking for people to join the cause. Three ways to bring someone in:
 
 ### Per-person values
 
-Each potential co-conspirator has **values** — *hate* is the named example
-("different values of like hate").
+Each potential co-conspirator has **values** ("different values of like
+hate") — *several stats with hate as one example, or different amounts of
+hate? See open question 5.*
 
 The key relationship is **grasp**: *"the more you have them in your grasp the
 more they either need to be part of it or not."* How tightly you hold someone
-shapes whether they end up committed to the plot.
+shapes whether they end up part of the plot — *exactly how is open question 6.*
 
 ### Execute or spare
 

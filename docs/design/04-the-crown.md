@@ -16,9 +16,10 @@ Conspiracy  →  Planning  →  The Murder  →  (new Emperor)  →  Conspiracy 
 **Win:** kill a **certain number of Emperors** and you are **crowned
 yourself**.
 
-**Lose:** a co-conspirator you left alive **rats you out** and the chance
-comes up against you — you are **ended** (see
-[Phase 1](01-conspiracy.md#execute-or-spare)).
+**Lose?** If a co-conspirator you left alive rats you out, you have *a
+chance of being ended* (see [Phase 1](01-conspiracy.md#execute-or-spare)).
+Whether that ends the whole game is open —
+[question 25](../open-questions.md#the-crown--restart-loop).
 
 ## Open questions
 

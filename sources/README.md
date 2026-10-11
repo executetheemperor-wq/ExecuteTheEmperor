@@ -8,7 +8,7 @@ pulled into this repo. Kept deliberately vague about personal accounts —
 
 | When | From | What | Where it went |
 |---|---|---|---|
-| 2026-10-11 | Chat notes | The three phases, the restart/crown loop, the three screens (forum / palace map / reports) | [`ideas/raw/2026-10-11-chat-notes.md`](../ideas/raw/2026-10-11-chat-notes.md) |
+| 2026-10-11 | Chat notes | The three phases, the restart/crown loop, the forum / palace map / reports for each phase | [`ideas/raw/2026-10-11-chat-notes.md`](../ideas/raw/2026-10-11-chat-notes.md) |
 | 2026-10-11 | Chat notes | Board game: pressure tokens, unlocks | [`ideas/raw/2026-10-11-chat-notes.md`](../ideas/raw/2026-10-11-chat-notes.md) |
 
 ## Still to import

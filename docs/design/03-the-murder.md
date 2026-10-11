@@ -1,6 +1,6 @@
 # Phase 3 — The Murder
 
-**Screen:** Reports
+**Centrepiece:** Reports
 **Job:** the plan plays out — and you find out what *really* happened, or
 what people say happened.
 
@@ -14,8 +14,8 @@ what people say happened.
 
 ### Be there, or don't
 
-You **can** witness the murder if you're there — but you **may not be able
-to** be there.
+You **can** see the murder if you're there — "but you may not be able to"
+(*be there at all, or see it even when you are? See open question 17.*)
 
 | | You're there | You're not there |
 |---|---|---|
