@@ -1,23 +1,20 @@
 # Sprint 1 — the card layer (draft)
 
 > **Status: draft proposal.** Your direction, my fleshing-out. Strike
-> anything that's wrong. *(Chat › Note 3)*
+> anything that's wrong. *(Chat › Notes 3–4)*
 
 ## Your call so far
 
 - **Leave the murder stage out for now.** Focus the first sprint on the
-  card-building side.
-- **Not sure the Emperor-killing part works** with the rest of the design.
-- **Maybe it's a board game.**
+  card-building side. ([D1](decisions.md))
+- **Board game first.** ([D2](decisions.md))
+- **It's about the 30-second turn first.** ([D3](decisions.md))
 
-## Proposal: a paper prototype of the card layer
+## Goal
 
-**Goal:** find out whether drafting and managing co-conspirators under
-rising Pressure is fun on its own, before anything about the murder is
-decided.
-
-Paper first, because it's the cheapest way to test card systems — and if it
-plays well on the table, that's also the answer to "is it a board game?".
+**Find one turn of the card layer that's fun to play over and over** —
+drafting and managing co-conspirators under rising Pressure — before
+anything about the murder is decided. On paper, at the table.
 
 ### In scope
 
@@ -38,14 +35,55 @@ plays well on the table, that's also the answer to "is it a board game?".
 - **Multiple Emperors and the crown.**
 - **Pathing map** — draw events from a deck for now.
 
-### Placeholder ending
+## Candidate turn loops *(suggestions)*
 
-Without a murder stage, a run still needs to end. **Suggestion:** when
-Pressure hits the threshold, you *have to strike* — score your plot (e.g.
-total Influence + Military + Political from you and your co-conspirators,
-minus their combined Suspicion) against a target number for the Emperor.
-That matches your board-game note ("once it hits a value you have to plot")
-and gives the card layer something to aim at.
+Three different shapes for the 30-second turn, to try against each other on
+paper. All three use the same co-conspirators, Pressure track and stats.
+
+**A · Event response** — closest to the notes.
+1. Reveal an event (it asks for a card type — e.g. *Military*).
+2. Play cards of that type from your hand — spend them now, or keep them
+   for a bigger event.
+3. Resolve: gain or lose stats and money; maybe a co-conspirator reacts.
+4. Recruit one candidate from the market, or act (blackmail, a one-time
+   card).
+5. +1 Pressure.
+
+**B · Market deckbuilder** — Dominion/Clank-style.
+1. Draw 5 from your plot deck (your cards + your co-conspirators', curses
+   included).
+2. Spend them as currency (Influence, Money, Charm…) to recruit from the
+   co-conspirator market or claim political events.
+3. Everyone you recruit shuffles their cards into your deck — good *and*
+   bad.
+4. +1 Pressure.
+
+**C · Places in Rome** — worker placement.
+1. Send your agents to places — Senate, Forum, Baths, Barracks, Theatre —
+   each giving a resource, intel, or a recruit.
+2. Co-conspirator cards boost or unlock places (the actor-friend opens the
+   Theatre).
+3. End of round: +1 Pressure; unhappy co-conspirators make trouble.
+
+A uses your event idea most directly. B makes "sticky co-conspirators clog
+your deck" the core tension. C is the most board-game-native, and the
+easiest to make multiplayer.
+
+## Placeholder ending
+
+Without a murder stage, a run still needs to end. Combining your two notes:
+*(Chat › Notes 2 and 4)*
+
+1. **When Pressure hits the threshold, you have to strike** — "once it hits
+   a value you have to plot".
+2. **The final check**, Fate of the Fellowship-style: **two of your skills
+   combined must reach a target value** (e.g. Influence + Military ≥ the
+   Emperor's number) …
+3. … **then a roll against your co-conspirators' happiness** — will they
+   hold their nerve?
+
+It's a stand-in, not the real murder stage, but it gives every turn of the
+card layer something to aim at: the right two skills, and a happy crew.
 
 ## Table-friendly tweaks *(suggestions)*
 
@@ -64,14 +102,15 @@ and gives the card layer something to aim at.
 
 ## Decisions needed before the first playtest
 
-1. **What is a turn?** e.g. *draw an event → respond with cards → draft or
-   act → +1 Pressure*.
+1. **What is a turn?** Pick one of the candidate loops above (or mix them).
 2. **The first 8–10 co-conspirators**: a cost, stat modifiers, 2–3 cards
    and one trait each.
 3. **The first 12–15 events**, each calling for a card type.
 4. **Card anatomy**: type, effect, and any cost.
 5. **The placeholder ending**, or a better one.
 6. **Solo or multiplayer** for the table version (rival conspirators?).
+7. **One source of randomness or two** — the card draw, the dice, or both?
+   ([design review](design-review.md))
 
 ## Why park the murder *(context for later)*
 
@@ -81,6 +120,9 @@ and gives the card layer something to aim at.
   and guard behaviour — bolted onto a deckbuilder.
 - It risks a whole run ending in one dice roll.
 
-Ways it could fit later *(suggestions)*: as a **final boss event** played
-with the cards you've built up, or as a **scored finale** when Pressure
-hits its limit. See [The assassination](design/07-the-assassination.md).
+Ways it could fit later: your idea of **several win conditions**, or a
+**final Fate of the Fellowship-style check** (two skills reaching a value,
+then a roll against co-conspirator happiness); or *(suggestions)* a **final
+boss event** played with the cards you've built up, or a **scored finale**
+when Pressure hits its limit. See
+[ideas for the kill](design/07-the-assassination.md#ideas-for-the-kill-later).

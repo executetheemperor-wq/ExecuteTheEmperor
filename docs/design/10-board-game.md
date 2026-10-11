@@ -1,9 +1,8 @@
 # Board game
 
-A tabletop version came up as its own note *(Chat › Note 2)* — and after
-reading the write-up you wondered whether the whole thing might be a board
-game *(Chat › Note 3)*. [Sprint 1](../sprint-1.md) proposes testing the card
-layer on paper first, which answers that question either way.
+**Board game first** — decided 2026-10-11 ([D2](../decisions.md)).
+*(Chat › Notes 2–4)* [Sprint 1](../sprint-1.md) is about finding the
+30-second turn on paper.
 
 - **Pressure tokens build up.**
 - **Once they hit a value, you have to plot.**

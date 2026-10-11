@@ -48,3 +48,7 @@ Note 2 (the board game) appears only here.
 
 > I'm initially thinking we leave the  actual murder stage out for a bit and focus on the card building aspect, as like first sprint. Also not sure if the design works with the emperor killing bit. Almost think of it as a board game mayhaps
 > Initial thoughts
+
+## Note 4 — board game first; ideas for the kill (after Claude's design review)
+
+> Yeah I think so. Defo designing as a board game first. Mechanics of actually killing the emperor can be thought of later, maybe many win conditions or SMT idk. Like how in fate of the fellowship you need to do a last roll as frodo even when there, maybe like a combo of two skills being a certain value and then a roll against co conspirator happiness or SMT. But I agree it's about the 30 sec first

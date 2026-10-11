@@ -23,10 +23,15 @@ These were open before the OneNote notebook was imported:
 
 ## The big ones (Chat › Note 3)
 
-- **Board game, video game, or board game first?** — leaning towards
-  testing on the table. See [Sprint 1](sprint-1.md).
-- **Does the murder stage belong in the game at all**, and if so in what
-  form — a chessboard set-up, a final boss event, or a scored finale?
+- ~~Board game, video game, or board game first?~~ → **board game first**
+  ([D2](decisions.md)).
+- **Which turn loop?** — the 30-second turn comes first
+  ([D3](decisions.md)); three candidates in [Sprint 1](sprint-1.md#candidate-turn-loops-suggestions).
+- **How is the Emperor actually killed?** Parked ([D1](decisions.md)).
+  Ideas so far: several win conditions; a final Fate of the
+  Fellowship-style check; a boss fight with your built-up cards; or the
+  original chessboard set-up. See
+  [ideas for the kill](design/07-the-assassination.md#ideas-for-the-kill-later).
 
 ## Decide first (needed for a prototype)
 
@@ -34,7 +39,7 @@ These were open before the OneNote notebook was imported:
 2. **What is a turn?** *(audit G1)*
 3. **Who is the player character**, and what do they start with?
 4. **The core stat list.** *(audit C2)*
-5. **How does the night of the murder resolve?** *(audit G3)*
+5. ~~How does the night of the murder resolve?~~ Parked ([D1](decisions.md)) — Sprint 1 uses a [placeholder ending](sprint-1.md#placeholder-ending). *(audit G3)*
 6. **How do you learn about the Emperor?** *(audit G2)*
 7. **What does a card look like**, and how is it drawn? *(audit G4)*
 

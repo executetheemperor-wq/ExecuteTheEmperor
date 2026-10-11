@@ -1,8 +1,9 @@
 # The assassination
 
 > **Parked (2026-10-11).** Left out of the first sprint, and you're not sure
-> it fits the rest of the design yet. See [Sprint 1](../sprint-1.md#why-park-the-murder-context-for-later).
-> *(Chat › Note 3)*
+> it fits the rest of the design yet. See [Sprint 1](../sprint-1.md#why-park-the-murder-context-for-later),
+> [decision D1](../decisions.md) and [ideas for the kill](#ideas-for-the-kill-later).
+> *(Chat › Notes 3–4)*
 
 **"The biggest night."** Everything you've built — intel, co-conspirators,
 money, position — gets spent here. It plays as deckbuilding and management,
@@ -78,6 +79,22 @@ The original idea gave phase 3 its own centrepiece: **Reports**.
   *(1.1 Pressure)*
 
 *(OneNote › The night of the murder)*
+
+## Ideas for the kill (later)
+
+The murder is parked, but you've floated how it might eventually work:
+*(Chat › Note 4)*
+
+- **Several win conditions**, rather than one way to kill him.
+- **A final check, like *The Fate of the Fellowship*** — where you still
+  have to make one last roll as Frodo even once you've made it to the end.
+  For example: **two skills combined must reach a certain value**, then a
+  **roll against your co-conspirators' happiness**.
+
+And from the [design review](../design-review.md) *(Claude's suggestion)*: a
+**boss fight played with the cards you've built**, where the Emperor's intel
+cards are his moves and your choice of area and method changes the deck you
+bring.
 
 ## Gaps
 

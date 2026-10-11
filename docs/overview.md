@@ -38,6 +38,12 @@ head. *(OneNote › 1. Variables, Basics, The night of the murder)*
 | **Call of Cthulhu** | d100 roll-under checks: roll ≤ your stat to pass. |
 | **Five Nights at Freddy's** | How Pressure hitting 100 should feel — the power's gone, hope you make 6am. |
 | **The Ides of March** | A bonus event: harder, but the omen deflects suspicion. |
+| **The Fate of the Fellowship** | A last roll even once you've made it to the end — a model for the final check. *(Chat › Note 4)* |
+
+## Format
+
+**Board game first** — decided 2026-10-11 ([D2](decisions.md)). The video
+game ideas stay in the docs; the table version is where they get tested.
 
 ## Setting
 
