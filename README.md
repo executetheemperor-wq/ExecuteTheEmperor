@@ -42,6 +42,7 @@ pressure tokens build up, and once they hit a value you have to plot.
 | [`docs/design/`](docs/design/) | One doc per phase, plus the restart loop and the board game. Each starts with your notes word for word, then a tidied-up version. |
 | [`docs/open-questions.md`](docs/open-questions.md) | Everything the notes leave open — the agenda for the next brainstorm. |
 | [`docs/glossary.md`](docs/glossary.md) | Working vocabulary (grasp, suspicion, pressure tokens, …). |
+| [`docs/name-and-prior-art.md`](docs/name-and-prior-art.md) | Is the name taken? Which existing games are closest? |
 | [`ideas/raw/`](ideas/raw/) | Original notes, verbatim. Never edited. |
 | [`ideas/inbox.md`](ideas/inbox.md) | Drop new ideas here. |
 | [`sources/`](sources/) | Where ideas have been found (and searched for) across Drive, OneDrive, Gmail, etc. |
