@@ -87,3 +87,19 @@ and delete the question.
 28. **What gets unlocked as you go**, and what triggers each unlock?
 29. **Does the pressure-token idea also belong in the video game?** It
     could be the bridge between the two formats.
+
+## Touchstones
+
+30. **Which existing games and books is it closest to — and how is it
+    different?** Suggestions to react to (not from your notes):
+    - *Blood on the Clocktower* — social deduction; who gets executed, and
+      who's lying in their account of the night.
+    - *SHUG* — a board game whose alternative win is "Kill the King"; the
+      King marches on you each turn like a timer (compare pressure tokens).
+    - *Slay the Spire* and other roguelikes — run, die or win, restart,
+      unlock things as you go (compare the restart loop and board-game
+      unlocks).
+    - Conn Iggulden's *Emperor* series / the death of Julius Caesar — the
+      original conspiracy against an emperor.
+    - *God Emperor of Dune*, *V for Vendetta* — the tyrant at the centre,
+      and the plot to bring them down.
