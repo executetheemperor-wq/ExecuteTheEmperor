@@ -7,6 +7,10 @@
 **Status:** 🌱 idea stage. Nothing is being built yet — this repo is the one
 place every idea for the game lives.
 
+**Next:** [Sprint 1](docs/sprint-1.md) *(draft)* — a paper prototype of the
+card layer (co-conspirators, cards, stats, Pressure). The murder stage is
+parked for now.
+
 ---
 
 ## The game in one screen
@@ -46,6 +50,7 @@ tokens build up, and once they hit a value you have to plot.
 |---|---|
 | [`docs/overview.md`](docs/overview.md) | The pitch, genre, setting, touchstones and design principles. |
 | [`docs/design/`](docs/design/) | One doc per system, written up from the notes, with gaps marked. |
+| [`docs/sprint-1.md`](docs/sprint-1.md) | Draft plan for the first sprint: the card layer, on paper. |
 | [`docs/audit.md`](docs/audit.md) | Where the notes contradict each other, what's missing, empty pages. |
 | [`docs/open-questions.md`](docs/open-questions.md) | Decisions still to make — the agenda for the next session. |
 | [`docs/glossary.md`](docs/glossary.md) | Working vocabulary. |

@@ -1,5 +1,9 @@
 # The assassination
 
+> **Parked (2026-10-11).** Left out of the first sprint, and you're not sure
+> it fits the rest of the design yet. See [Sprint 1](../sprint-1.md#why-park-the-murder-context-for-later).
+> *(Chat › Note 3)*
+
 **"The biggest night."** Everything you've built — intel, co-conspirators,
 money, position — gets spent here. It plays as deckbuilding and management,
 not action: dice, stats and cards. *(OneNote › The night of the murder)*

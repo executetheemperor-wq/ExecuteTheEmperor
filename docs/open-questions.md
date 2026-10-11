@@ -21,6 +21,13 @@ These were open before the OneNote notebook was imported:
 - **Touchstones?** Slay the Spire, Darkest Dungeon II, Call of Cthulhu, Five
   Nights at Freddy's.
 
+## The big ones (Chat › Note 3)
+
+- **Board game, video game, or board game first?** — leaning towards
+  testing on the table. See [Sprint 1](sprint-1.md).
+- **Does the murder stage belong in the game at all**, and if so in what
+  form — a chessboard set-up, a final boss event, or a scored finale?
+
 ## Decide first (needed for a prototype)
 
 1. **Three phases or four**, and in what order? *(audit C1)*

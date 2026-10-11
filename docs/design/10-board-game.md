@@ -1,6 +1,9 @@
 # Board game
 
-A tabletop version came up as its own note. *(Chat › Note 2)*
+A tabletop version came up as its own note *(Chat › Note 2)* — and after
+reading the write-up you wondered whether the whole thing might be a board
+game *(Chat › Note 3)*. [Sprint 1](../sprint-1.md) proposes testing the card
+layer on paper first, which answers that question either way.
 
 - **Pressure tokens build up.**
 - **Once they hit a value, you have to plot.**

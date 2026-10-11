@@ -43,3 +43,8 @@ Note 2 (the board game) appears only here.
 > Pressure tokens build, once it hits a value you have to plot
 >
 > Things unlocked as you go
+
+## Note 3 — first sprint and doubts about the murder (after reading the write-up)
+
+> I'm initially thinking we leave the  actual murder stage out for a bit and focus on the card building aspect, as like first sprint. Also not sure if the design works with the emperor killing bit. Almost think of it as a board game mayhaps
+> Initial thoughts
