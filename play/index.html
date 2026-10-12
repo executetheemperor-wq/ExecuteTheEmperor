@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Execute the Emperor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<style>
+/* Layout: a gaming table. Left, the Emperor, the clock and your hand; right, the sheet, crew and log. One column on phones. */
+:root {
+  --bg: #e9e6ec;          /* veined marble, a touch of purple */
+  --surface: #f7f5f8;
+  --sunk: #dfdae3;
+  --ink: #221a2a;
+  --muted: #675d6f;
+  --line: #cdc5d3;
+  --accent: #6b1d5e;      /* Tyrian purple */
+  --accent-ink: #ffffff;
+  --bronze: #8d611a;
+  --bad: #a8322a;
+  --good: #2c6a49;
+  --calm: #d8e3dc; --restless: #ece2c6; --uneasy: #efd1b3; --reckless: #eab8ad; --breaking: #c9817c;
+  --display: "Marcellus", "Trajan Pro", "Times New Roman", serif;
+  --body: "Alegreya Sans", "Gill Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --r: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #16111a; --surface: #211a27; --sunk: #2b2232; --ink: #ece4ef; --muted: #a596ad; --line: #3b3043;
+    --accent: #cf86bf; --accent-ink: #1b1220; --bronze: #d8a952; --bad: #e46f63; --good: #74c495;
+    --calm: #24352c; --restless: #3d3520; --uneasy: #48311f; --reckless: #4f2722; --breaking: #6e2a26;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #16111a; --surface: #211a27; --sunk: #2b2232; --ink: #ece4ef; --muted: #a596ad; --line: #3b3043;
+  --accent: #cf86bf; --accent-ink: #1b1220; --bronze: #d8a952; --bad: #e46f63; --good: #74c495;
+  --calm: #24352c; --restless: #3d3520; --uneasy: #48311f; --reckless: #4f2722; --breaking: #6e2a26;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--ink);
+  font: 16px/1.4 var(--body);
+  padding: 0 16px; padding-block: 12px 48px;
+}
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; text-wrap: balance; }
+button { font: inherit; color: inherit; }
+button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.num { font-variant-numeric: tabular-nums; }
+h1 .num, h2 .num, h3 .num, .pool b, .odds .pct, .die, .turn-num { font-family: var(--body); font-weight: 500; }
+.eyebrow { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.muted { color: var(--muted); }
+.bad-text { color: var(--bad); }
+.good-text { color: var(--good); }
+
+.wrap { max-width: 1180px; margin: 0 auto; display: grid; gap: 16px; }
+
+/* header */
+.top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; }
+.top h1 { font-size: 26px; letter-spacing: .04em; }
+.top .turn { font-family: var(--display); font-size: 20px; color: var(--accent); }
+.top .spacer { flex: 1; }
+.top details { position: relative; }
+.newgame { display: grid; gap: 8px; padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); margin-top: 8px; min-width: 0; }
+.newgame label { display: grid; gap: 2px; font-size: 14px; color: var(--muted); }
+.newgame select, .newgame input { font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--ink); }
+
+.btn { border: 1px solid var(--line); background: var(--surface); padding: 8px 14px; border-radius: 999px; cursor: pointer; line-height: 1.2; }
+.btn:hover:not(:disabled) { border-color: var(--accent); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.danger { border-color: var(--bad); color: var(--bad); }
+.btn.small { padding: 4px 10px; font-size: 14px; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+summary.btn { list-style: none; display: inline-block; }
+summary.btn::-webkit-details-marker { display: none; }
+
+.layout { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 960px) { .layout { grid-template-columns: minmax(0, 1fr) 340px; align-items: start; } }
+.col { display: grid; gap: 16px; min-width: 0; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; min-width: 0; }
+.panel > h2 { font-size: 18px; margin-bottom: 10px; }
+.panel-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.panel-head h2 { font-size: 18px; }
+
+/* the Emperor and the strike */
+.foe { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 640px) { .foe { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); } }
+.emperor { border: 2px solid var(--accent); border-radius: var(--r); padding: 12px 14px; background: var(--bg); display: grid; gap: 6px; align-content: start; }
+.emperor h2 { font-size: 24px; color: var(--accent); }
+.emperor .quirk { margin: 0; font-style: italic; }
+.emperor .tgt { margin: 0; font-size: 15px; }
+.strike { display: grid; gap: 8px; align-content: start; }
+.meter { height: 10px; background: var(--sunk); border-radius: 999px; overflow: hidden; }
+.meter > span { display: block; height: 100%; background: var(--bronze); }
+.meter.ok > span { background: var(--good); }
+.strike .line { margin: 0; font-size: 15px; }
+.odds { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.odds .pct { font-family: var(--display); font-size: 30px; line-height: 1; }
+
+/* pressure */
+.track { display: grid; grid-template-columns: repeat(21, minmax(0, 1fr)); gap: 2px; }
+.cell { text-align: center; font-size: 12px; padding: 4px 0; border-radius: 3px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.cell.calm { background: var(--calm); } .cell.restless { background: var(--restless); } .cell.uneasy { background: var(--uneasy); }
+.cell.reckless { background: var(--reckless); } .cell.breaking { background: var(--breaking); }
+.cell.now { outline: 2px solid var(--ink); outline-offset: -2px; font-weight: 700; }
+.bandnames { display: grid; grid-template-columns: 5fr 5fr 5fr 5fr 1.3fr; gap: 2px; font-size: 12px; color: var(--muted); margin-top: 4px; }
+.bandnames span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.effects { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 4px; font-size: 14px; }
+.effects li { display: flex; gap: 8px; }
+.effects .box { flex: none; width: 16px; height: 16px; border: 1.5px solid var(--muted); border-radius: 3px; display: grid; place-items: center; font-size: 12px; margin-top: 2px; }
+.effects li.fired { color: var(--muted); }
+.effects li.fired .box { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.effects li.here { font-weight: 500; }
+
+/* your turn */
+.steps { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 10px; padding: 0; list-style: none; font-size: 13px; }
+.steps li { padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.steps li.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.steps li.done { text-decoration: line-through; }
+.prompt { margin: 0 0 10px; font-size: 17px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.pool { display: flex; flex-wrap: wrap; gap: 16px; align-items: baseline; margin-bottom: 10px; }
+.pool b { font-family: var(--display); font-size: 26px; font-weight: 400; }
+.preview { background: var(--bg); border: 1px dashed var(--line); border-radius: var(--r); padding: 8px 10px; margin-bottom: 10px; font-size: 15px; }
+.flash { border-left: 4px solid var(--bronze); background: var(--bg); padding: 8px 12px; border-radius: 0 var(--r) var(--r) 0; margin-bottom: 10px; }
+.flash.bad { border-color: var(--bad); }
+.error { color: var(--bad); margin: 0 0 8px; }
+
+.hand { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.card { text-align: left; display: grid; gap: 4px; align-content: start; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--r); background: var(--bg); cursor: pointer; min-height: 120px; }
+.card:hover:not(:disabled) { border-color: var(--accent); }
+.card.sel { border: 2px solid var(--accent); padding: 7px 9px; background: var(--surface); }
+.card.bad { border-color: color-mix(in srgb, var(--bad) 55%, var(--line)); }
+.card.bad .cname { color: var(--bad); }
+.card.played { opacity: .7; cursor: default; min-height: 0; }
+.card.actedwith { opacity: 1; border-width: 2px; padding: 7px 9px; border-color: var(--accent); }
+.card .owner { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.card .cname { font-family: var(--display); font-size: 16px; line-height: 1.15; }
+.card .half { font-size: 14px; display: block; }
+.card .half i { font-style: normal; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: block; }
+.card .act { padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+.playedrow { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 6px; margin-bottom: 12px; }
+
+/* market and crew */
+.market { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.person { border: 1px solid var(--line); border-radius: var(--r); padding: 10px 12px; display: grid; gap: 6px; align-content: start; background: var(--bg); }
+.person h3 { font-size: 18px; }
+.person .title { color: var(--muted); font-size: 14px; }
+.person p { margin: 0; font-size: 14px; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag { font-size: 12px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); }
+.tag.role { border-color: var(--accent); color: var(--accent); }
+.tag.warn { border-color: var(--bad); color: var(--bad); }
+.tag.cost { border-color: var(--bronze); color: var(--bronze); font-weight: 700; }
+.brings { list-style: none; padding: 0; margin: 0; display: grid; gap: 3px; font-size: 13px; color: var(--muted); }
+.brings b { color: var(--ink); font-weight: 500; }
+.brings .badname { color: var(--bad); }
+.person .btn { justify-self: start; }
+
+.crew { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.crew li { display: grid; gap: 4px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.crew li:last-child { border-bottom: 0; padding-bottom: 0; }
+.crew .who { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.crew .who b { font-family: var(--display); font-weight: 400; font-size: 17px; }
+.crew li > .btn { justify-self: start; }
+.confirm { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 14px; }
+
+/* sheet */
+.stats { display: grid; gap: 6px; }
+.stat { display: grid; grid-template-columns: 82px minmax(0, 1fr) 24px; gap: 8px; align-items: center; font-size: 14px; }
+.stat.key .label { color: var(--accent); font-weight: 700; }
+.pips { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 2px; }
+.pips.five { grid-template-columns: repeat(5, minmax(0, 1fr)); max-width: 50%; }
+.pips.three { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 30%; }
+.pip { height: 10px; border-radius: 2px; background: var(--sunk); }
+.pip.on { background: var(--ink); }
+.stat.key .pip.on { background: var(--accent); }
+.onceuse { display: flex; gap: 16px; margin-top: 10px; font-size: 14px; flex-wrap: wrap; }
+
+details.zone summary { cursor: pointer; }
+.zonelist { margin: 6px 0 0; padding-left: 18px; font-size: 14px; }
+
+.log { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; max-height: 340px; overflow-y: auto; font-size: 14px; }
+.log li { padding-left: 10px; border-left: 2px solid transparent; }
+.log li.turn { font-family: var(--display); color: var(--accent); border: 0; padding: 6px 0 0; }
+.log li.band { border-color: var(--bronze); }
+.log li.pressure { color: var(--muted); }
+.log li.quiet { color: var(--muted); }
+.log li.strike { border-color: var(--accent); }
+.log li.win { border-color: var(--good); color: var(--good); font-weight: 700; }
+.log li.lose { border-color: var(--bad); color: var(--bad); font-weight: 700; }
+
+.rules { font-size: 14px; }
+.rules ol, .rules ul { padding-left: 20px; margin: 6px 0; }
+.rules table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+.rules th, .rules td { text-align: left; padding: 3px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tablewrap { overflow-x: auto; }
+
+/* modal */
+.scrim { position: fixed; inset: 0; background: color-mix(in srgb, var(--ink) 45%, transparent); display: grid; place-items: center; padding: 16px; z-index: 10; overflow-y: auto; }
+.modal { background: var(--surface); color: var(--ink); border-radius: 10px; border: 1px solid var(--line); padding: 20px; width: min(560px, 100%); display: grid; gap: 12px; max-height: calc(100% - 16px); overflow-y: auto; }
+.modal h2 { font-size: 26px; }
+.modal .sum { margin: 0; padding-left: 18px; }
+.die { width: 84px; height: 84px; border-radius: 14px; border: 2px solid var(--ink); display: grid; place-items: center; font-family: var(--display); font-size: 48px; justify-self: center; background: var(--bg); }
+.die.rolling { animation: tumble .6s ease-out; }
+@keyframes tumble { 0% { transform: rotate(-200deg) scale(.6); } 70% { transform: rotate(15deg) scale(1.05); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .die.rolling { animation: none; } }
+.verdict { font-family: var(--display); font-size: 28px; text-align: center; margin: 0; }
+.verdict.win { color: var(--good); } .verdict.lose { color: var(--bad); }
+textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); padding: 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--ink); resize: vertical; }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"><p class="muted">Loading the plot…</p></div>
+<div id="modal-root"></div>
+
+<script src="engine.js"></script>
+<script>
+(function () {
+  'use strict';
+  const E = window.ETE;
+  const SAVE_KEY = 'ete-play-v03';
+  const $app = document.getElementById('app');
+  const $modal = document.getElementById('modal-root');
+
+  let g = null;
+  let ui = null;
+
+  function freshUi(prev) {
+    return {
+      selected: null,
+      confirmSilence: null,
+      feastPick: false,
+      modal: null,           // {type:'strike', stage:'confirm'|'result', ...} | {type:'gameover'}
+      flash: null,
+      error: null,
+      turnStart: Date.now(),
+      turnTimes: [],
+      gameNo: prev ? prev.gameNo : 1,
+    };
+  }
+
+  // ------------------------------------------------------------ storage
+
+  function save() {
+    try { localStorage.setItem(SAVE_KEY, JSON.stringify({ g, ui: { turnTimes: ui.turnTimes, gameNo: ui.gameNo } })); } catch (e) { /* storage blocked */ }
+  }
+  function load() {
+    try {
+      const raw = localStorage.getItem(SAVE_KEY);
+      if (!raw) return null;
+      const data = JSON.parse(raw);
+      if (!data || !data.g || data.g.version !== E.RULES_VERSION) return null;
+      return data;
+    } catch (e) { return null; }
+  }
+
+  function startGame(opts) {
+    const prev = ui;
+    const finished = g && g.phase === 'gameover';
+    g = E.newGame(opts || {});
+    ui = freshUi(prev);
+    if (finished) ui.gameNo += 1;
+    save();
+    render();
+  }
+
+  // ------------------------------------------------------------ helpers
+
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const P = E.PEOPLE, C = E.CARD_DEFS, EM = E.EMPERORS, SN = E.STAT_NAMES;
+  const pct = (x) => `${Math.round(x * 100)}%`;
+  const signed = (n) => (n > 0 ? `+${n}` : n < 0 ? `−${Math.abs(n)}` : '±0');
+
+  function roman(n) {
+    const map = [[10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
+    let out = '';
+    for (const [v, s] of [[50, 'L'], [40, 'XL'], ...map]) while (n >= v) { out += s; n -= v; }
+    return out;
+  }
+
+  function costText(cost) {
+    const parts = [];
+    if (cost.money) parts.push(`${cost.money} Money`);
+    if (cost.inf) parts.push(`${cost.inf} Influence`);
+    return parts.join(' + ');
+  }
+  function bonusText(bonus) { return Object.keys(bonus).map((s) => `+${bonus[s]} ${SN[s]}`).join(', '); }
+
+  function roleTags(who) {
+    const p = P[who];
+    const tags = [`<span class="tag role">${p.role}</span>`];
+    if (g.emperor === 'wife' && (who === 'aurelia' || who === 'livia')) tags.push('<span class="tag role">also a Blade</span>');
+    if (p.jumpy) tags.push('<span class="tag warn">Jumpy</span>');
+    const rivalIn = g.crew.includes(p.rival);
+    tags.push(`<span class="tag ${rivalIn ? 'warn' : ''}">Rival: ${P[p.rival].name}${rivalIn ? ' (in your crew)' : ''}</span>`);
+    return tags.join('');
+  }
+
+  function cardHtml(id, opts) {
+    opts = opts || {};
+    const c = E.card(g, id);
+    const owner = c.owner ? P[c.owner].name : 'Starter';
+    const cls = ['card', c.bad ? 'bad' : '', opts.selected ? 'sel' : '', opts.played ? 'played' : '', opts.actedWith ? 'actedwith' : ''].join(' ');
+    const attrs = opts.played ? 'disabled' : `data-action="select" data-id="${esc(id)}" aria-pressed="${opts.selected ? 'true' : 'false'}"`;
+    return `<button class="${cls}" ${attrs}>
+      <span class="owner">${esc(owner)}${opts.actedWith ? ' · acted' : ''}</span>
+      <span class="cname">${c.bad ? '✗ ' : ''}${esc(c.name)}</span>
+      <span class="half act"><i>Action</i>${esc(c.actionText)}</span>
+      <span class="half res"><i>${c.bad ? 'Resource ✗' : 'Resource'}</i>${esc(c.resourceText)}</span>
+    </button>`;
+  }
+
+  // What acting with this card would give, without peeking at the deck.
+  function previewAct(id) {
+    const c = E.card(g, id);
+    let money = c.action.money || 0, inf = c.action.inf || 0, pressure = c.action.pressure || 0;
+    for (const other of g.hand) {
+      if (other === id) continue;
+      const r = E.card(g, other).resource;
+      money += r.money || 0; inf += r.inf || 0; pressure += r.pressure || 0;
+    }
+    const bits = [`${Math.max(0, money)} Money`, `${Math.max(0, inf)} Influence`];
+    if (pressure) bits.push(`${signed(pressure)} Pressure`);
+    if (c.action.prep) bits.push(`+${c.action.prep} Preparation${c.action.prep > 1 ? 's' : ''}`);
+    if (c.action.military) bits.push(`+${c.action.military} Military`);
+    let extra = '';
+    if (c.action.draw) extra = `, plus the Resource of the ${c.action.draw} cards you draw`;
+    if (c.action.recruitTwice) extra = ', and you can recruit twice';
+    return `Act with <b>${esc(c.name)}</b> and reveal the rest: ${bits.join(', ')}${extra}. Then recruit.`;
+  }
+
+  // ----------------------------------------------------------- actions
+
+  function run(fn, ...args) {
+    const turnBefore = g.turn;
+    ui.error = null;
+    try { E[fn](g, ...args); } catch (e) { ui.error = e.message; }
+    if (g.turn !== turnBefore || g.phase === 'gameover') {
+      const now = Date.now();
+      ui.turnTimes.push(Math.round((now - ui.turnStart) / 1000));
+      ui.turnStart = now;
+      ui.selected = null;
+      ui.feastPick = false;
+    }
+    ui.confirmSilence = null;
+    save();
+  }
+
+  function onClick(ev) {
+    const el = ev.target.closest('[data-action]');
+    if (!el || el.disabled) return;
+    const a = el.dataset.action;
+    const who = el.dataset.who;
+    switch (a) {
+      case 'select':
+        if (g.phase !== 'start' || g.forcedStrike || g.pending) return;
+        ui.selected = ui.selected === el.dataset.id ? null : el.dataset.id;
+        break;
+      case 'act': run('act', ui.selected); ui.selected = null; ui.flash = null; break;
+      case 'act-empty': run('act', null); ui.flash = null; break;
+      case 'push': run('push'); ui.flash = null; break;
+      case 'lielow': run('lieLow'); ui.flash = { text: 'You lay low. Your hand was discarded and nothing in it counted.' }; break;
+      case 'recruit': run('recruit', who); break;
+      case 'feast': {
+        const splits = E.feastSplits(g);
+        if (g.recruitsLeft > 1 && splits.length > 1 && !el.dataset.money) { ui.feastPick = true; break; }
+        const split = el.dataset.money != null ? { money: +el.dataset.money, inf: +el.dataset.inf } : undefined;
+        run('feast', split); ui.feastPick = false; break;
+      }
+      case 'feast-cancel': ui.feastPick = false; break;
+      case 'end': run('endTurn'); ui.flash = null; break;
+      case 'silence-ask': ui.confirmSilence = who; break;
+      case 'silence-no': ui.confirmSilence = null; break;
+      case 'silence': run('silence', who); break;
+      case 'strike-open': ui.modal = { type: 'strike', stage: 'confirm' }; break;
+      case 'strike-roll': {
+        const before = g.tally.strikes.length;
+        run('strike');
+        const rec = g.tally.strikes[before];
+        ui.modal = rec ? { type: 'strike', stage: 'result', rec, rolling: true } : null;
+        break;
+      }
+      case 'cover': run('chooseCover', who); ui.modal = { type: 'strike', stage: 'result', rec: g.tally.strikes[g.tally.strikes.length - 1] }; break;
+      case 'modal-close':
+        ui.modal = null;
+        if (g.phase === 'gameover') ui.modal = { type: 'gameover' };
+        else {
+          const rec = g.tally.strikes[g.tally.strikes.length - 1];
+          if (rec && rec.cover) ui.flash = { text: `You missed with a ${rec.roll}, and ${rec.cover} took the fall. Pressure jumped to the next band.`, bad: true };
+        }
+        break;
+      case 'gameover-show': ui.modal = { type: 'gameover' }; break;
+      case 'gameover-hide': ui.modal = null; break;
+      case 'copy': copyLog(el); return;
+      case 'new': {
+        const empSel = document.getElementById('ng-emperor');
+        const seedIn = document.getElementById('ng-seed');
+        const opts = {};
+        if (empSel && empSel.value !== 'random') opts.emperor = empSel.value;
+        if (seedIn && seedIn.value.trim()) opts.seed = seedIn.value.trim();
+        startGame(opts); return;
+      }
+      case 'replay': startGame({ seed: g.seed, emperor: g.emperor }); return;
+      case 'again': startGame({}); return;
+    }
+    render();
+  }
+
+  function copyLog(el) {
+    const ta = document.getElementById('logentry');
+    const text = ta ? ta.value : '';
+    const done = () => { el.textContent = 'Copied'; setTimeout(() => { el.textContent = 'Copy'; }, 1600); };
+    const fallback = () => { if (ta) { ta.focus(); ta.select(); } el.textContent = 'Selected: copy it'; };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+      else fallback();
+    } catch (e) { fallback(); }
+  }
+
+  // ------------------------------------------------------------ render
+
+  function render() {
+    const info = E.strikeInfo(g);
+    $app.innerHTML = `
+      ${headerHtml()}
+      <div class="layout">
+        <div class="col">
+          ${foeHtml(info)}
+          ${pressureHtml()}
+          ${turnHtml(info)}
+          ${marketHtml()}
+        </div>
+        <div class="col">
+          ${sheetHtml(info)}
+          ${crewHtml()}
+          ${deckHtml()}
+          ${logHtml()}
+          ${rulesHtml()}
+        </div>
+      </div>`;
+    $modal.innerHTML = modalHtml(info);
+    const die = $modal.querySelector('.die.rolling');
+    if (die && ui.modal) ui.modal.rolling = false;
+  }
+
+  function headerHtml() {
+    const empOpts = Object.keys(EM).map((k) => `<option value="${k}">${esc(EM[k].name)}</option>`).join('');
+    return `<header class="top">
+      <h1>Execute the Emperor</h1>
+      <span class="turn">Turn ${roman(g.turn)}</span>
+      <span class="muted num">rules ${E.RULES_VERSION} · seed ${esc(g.seed)}</span>
+      <span class="spacer"></span>
+      ${g.phase === 'gameover' ? '<button class="btn small" data-action="gameover-show">Result and log entry</button>' : ''}
+      <details>
+        <summary class="btn small">New game</summary>
+        <div class="newgame">
+          <label for="ng-emperor">Emperor
+            <select id="ng-emperor"><option value="random">Draw one at random</option>${empOpts}</select>
+          </label>
+          <label for="ng-seed">Seed (leave empty for a fresh shuffle)
+            <input id="ng-seed" type="text" inputmode="text" autocomplete="off" placeholder="e.g. ides-of-march">
+          </label>
+          <div class="actions" style="margin:0">
+            <button class="btn primary small" data-action="new">Start</button>
+            <button class="btn small" data-action="replay">Replay this seed</button>
+          </div>
+        </div>
+      </details>
+    </header>`;
+  }
+
+  function foeHtml(info) {
+    const emp = EM[g.emperor];
+    const tgtBits = [`${emp.target}`];
+    if (info.targetBonus) tgtBits.push(`+${info.targetBonus} whispers`);
+    if (info.insides.length) tgtBits.push(`−${info.insides.length} Inside (${info.insides.map((w) => P[w].name).join(', ')})`);
+    const fill = Math.min(100, Math.round((info.total / Math.max(1, info.target)) * 100));
+    const mods = [];
+    if (info.blades.length) mods.push(`Blades ${signed(info.bladeBonus)} (${info.blades.map((w) => P[w].name).join(', ')}${g.emperor === 'blind' ? ', first gives +2' : ''})`);
+    if (info.prep) mods.push(`Preparations ${signed(info.prep)}`);
+    if (info.rivals.length) mods.push(`<span class="bad-text">rivals −${info.rivals.length} (${info.rivals.map(([a, b]) => `${P[a].name}–${P[b].name}`).join(', ')})</span>`);
+    const can = E.canStrike(g);
+    const dieNeed = info.need <= 2 ? '2+' : info.need >= 7 ? '7+ (impossible)' : `${info.need}+`;
+    return `<section class="panel foe" aria-label="The Emperor">
+      <div class="emperor">
+        <p class="eyebrow">The Emperor</p>
+        <h2>${esc(emp.name)}</h2>
+        <p class="quirk">${esc(emp.quirk)}</p>
+        <p class="tgt">Strike with <b>${SN[info.stats[0]]} + ${SN[info.stats[1]]}</b>. Target <b class="num">${info.target}</b>${tgtBits.length > 1 ? ` <span class="muted">(${tgtBits.join(' ')})</span>` : ''}.</p>
+      </div>
+      <div class="strike">
+        <p class="eyebrow">If you strike now</p>
+        <p class="line num">${SN[info.stats[0]]} ${g.stats[info.stats[0]]} + ${SN[info.stats[1]]} ${g.stats[info.stats[1]]} = <b>${info.total}</b> of ${info.target} ${info.reaches ? '<span class="good-text">· enough to strike</span>' : `<span class="muted">· ${info.target - info.total} short</span>`}</p>
+        <div class="meter ${info.reaches ? 'ok' : ''}" role="img" aria-label="${info.total} of ${info.target}"><span style="width:${fill}%"></span></div>
+        <p class="line">Nerve roll: <b>${info.band.need}+</b> while ${info.band.name}. ${mods.length ? mods.join(' · ') : 'No modifiers yet.'}</p>
+        <div class="odds"><span class="pct num">${pct(info.chance)}</span><span>to hit: the die needs <b>${dieNeed}</b>, and a 1 always misses.${info.covers.length ? ` If you miss, ${info.covers.map((w) => P[w].name).join(' or ')} can take the fall.` : ' No Cover: a miss loses.'}</span></div>
+        <div class="actions" style="margin:0">
+          <button class="btn primary" data-action="strike-open" ${can ? '' : 'disabled'}>${g.forcedStrike ? 'Strike (you must)' : 'Strike'}</button>
+          ${!can && g.phase === 'start' && !g.forcedStrike && (g.pushed || g.acted) ? '<span class="muted">You can only strike at the start of a turn.</span>' : ''}
+        </div>
+      </div>
+    </section>`;
+  }
+
+  function pressureHtml() {
+    const cells = [];
+    for (let i = 0; i <= 20; i++) cells.push(`<div class="cell ${E.bandOf(i).key} ${i === g.pressure ? 'now' : ''}">${i}</div>`);
+    const here = E.bandOf(g.pressure);
+    const items = E.BANDS.filter((b) => b.effect).map((b) => {
+      const fired = g.bandsFired[b.key];
+      return `<li class="${fired ? 'fired' : ''} ${here.key === b.key ? 'here' : ''}"><span class="box">${fired ? '✓' : ''}</span><span><b>${b.name} (${b.min}${b.max > b.min ? `–${b.max}` : ''}, nerve ${b.need}+).</b> ${esc(b.effect)}</span></li>`;
+    }).join('');
+    const jumpy = g.crew.filter((w) => P[w].jumpy).length;
+    return `<section class="panel" aria-label="Pressure">
+      <div class="panel-head"><h2>Pressure <span class="num">${g.pressure}</span> · ${here.name}</h2><span class="muted">+${1 + jumpy} at the end of this turn${jumpy ? ` (${jumpy} Jumpy)` : ''}</span></div>
+      <div class="track">${cells.join('')}</div>
+      <div class="bandnames"><span>Calm 3+</span><span>Restless 4+</span><span>Uneasy 5+</span><span>Reckless 6+</span><span>7+</span></div>
+      <ul class="effects">${items}</ul>
+    </section>`;
+  }
+
+  function stepsHtml() {
+    const steps = ['Strike?', 'Push?', 'Act', 'Reveal', 'Recruit', 'End'];
+    let on = 0;
+    if (g.phase === 'start') on = g.forcedStrike ? 0 : g.pushed ? 2 : 0;
+    if (g.phase === 'recruit') on = 4;
+    if (g.phase === 'gameover') on = -1;
+    return `<ol class="steps">${steps.map((s, i) => `<li class="${i === on ? 'on' : ''} ${on > i ? 'done' : ''}">${i + 1}. ${s}</li>`).join('')}</ol>`;
+  }
+
+  function turnHtml(info) {
+    let body = '';
+    const err = ui.error ? `<p class="error" role="alert">${esc(ui.error)}</p>` : '';
+    const flash = ui.flash ? `<div class="flash ${ui.flash.bad ? 'bad' : ''}">${esc(ui.flash.text)}</div>` : '';
+
+    if (g.phase === 'gameover') {
+      const r = g.result;
+      body = `<p class="prompt">${r.win ? 'The Emperor is dead. You win.' : r.reason === 'short' ? 'Foiled: you were made to strike before you reached the target.' : 'Foiled on the nerve roll.'}</p>
+        <div class="actions"><button class="btn primary" data-action="gameover-show">Result and playtest-log entry</button><button class="btn" data-action="again">New game</button><button class="btn" data-action="replay">Replay this seed</button></div>`;
+    } else if (g.pending) {
+      body = '<p class="prompt">You missed. Choose which Cover takes the fall.</p>';
+    } else if (g.phase === 'start' && g.forcedStrike) {
+      body = `<p class="prompt"><b>Someone makes a move.</b> You must strike now${info.reaches ? '' : `, and you're ${info.target - info.total} short of the target, so the plot will be foiled`}.</p>
+        <div class="actions"><button class="btn primary" data-action="strike-open">Strike</button></div>
+        <div class="hand">${g.hand.map((id) => cardHtml(id, { played: true })).join('')}</div>`;
+    } else if (g.phase === 'start') {
+      const sel = ui.selected && g.hand.includes(ui.selected) ? ui.selected : null;
+      const prompt = g.pushed ? 'Choose one card to act with. The rest pay.' : 'Strike, Push, lie low, or choose one card to act with. The rest pay.';
+      const badCount = g.hand.filter((id) => E.card(g, id).bad).length;
+      body = `<p class="prompt">${prompt}</p>
+        <div class="actions">
+          ${g.hand.length ? `<button class="btn primary" data-action="act" ${sel ? '' : 'disabled'}>${sel ? `Act with ${esc(E.card(g, sel).name)}` : 'Pick a card to act with'}</button>` : '<button class="btn primary" data-action="act-empty">Your hand is empty: carry on</button>'}
+          <button class="btn" data-action="push" ${g.pushed ? 'disabled' : ''} title="+2 Pressure, draw 2 cards">Push: +2 Pressure, draw 2</button>
+          <button class="btn" data-action="lielow" ${g.pushed ? 'disabled' : ''} title="Discard your hand: no action, no Money or Influence, no Pressure from bad cards, no recruit">Lie low${badCount >= 2 ? ` (${badCount} ✗ in hand)` : ''}</button>
+        </div>
+        ${sel ? `<div class="preview">${previewAct(sel)}</div>` : ''}
+        <div class="hand">${g.hand.map((id) => cardHtml(id, { selected: id === sel })).join('')}</div>`;
+    } else if (g.phase === 'recruit') {
+      const any = g.market.some((w) => E.canAfford(g, w));
+      let feastUi = '';
+      if (!g.feastUsed && g.recruitsLeft > 0) {
+        if (ui.feastPick) {
+          feastUi = `<div class="confirm">Pay the Feast with: ${E.feastSplits(g).map((s) => `<button class="btn small" data-action="feast" data-money="${s.money}" data-inf="${s.inf}">${s.money} Money + ${s.inf} Influence</button>`).join('')}<button class="btn small" data-action="feast-cancel">Cancel</button></div>`;
+        } else {
+          feastUi = `<button class="btn" data-action="feast" ${E.canFeast(g) ? '' : 'disabled'} title="Once per game, instead of recruiting">Hold the Feast: pay 6, −3 Pressure</button>`;
+        }
+      }
+      body = `<div class="pool num"><span><b>${g.pool.money}</b> Money</span><span><b>${g.pool.inf}</b> Influence</span><span class="muted">${g.recruitsLeft} recruit${g.recruitsLeft === 1 ? '' : 's'} left · unspent is lost</span></div>
+        <p class="prompt">${g.recruitsLeft > 0 ? (any ? 'Recruit from the market below, or hold the Feast.' : 'You can\'t afford anyone in the market.') : 'Done recruiting.'} Then end your turn.</p>
+        <div class="actions"><button class="btn primary" data-action="end">End turn</button>${feastUi}</div>
+        <p class="eyebrow" style="margin-bottom:6px">Played this turn</p>
+        <div class="playedrow">${g.played.map((id) => cardHtml(id, { played: true, actedWith: id === g.actedWith })).join('') || '<span class="muted">Nothing.</span>'}</div>`;
+    }
+    return `<section class="panel" aria-label="Your turn">
+      <div class="panel-head"><h2>Your turn</h2><span class="muted num">Deck ${g.deck.length} · Discard ${g.discard.length}</span></div>
+      ${stepsHtml()}${flash}${err}${body}
+    </section>`;
+  }
+
+  function personHtml(who, mode) {
+    const p = P[who];
+    const brings = p.cards.map((d) => {
+      const c = C[d];
+      return `<li><b class="${c.bad ? 'badname' : ''}">${c.bad ? '✗ ' : ''}${esc(c.name)}</b>: ${esc(c.actionText)} / ${esc(c.resourceText)}</li>`;
+    }).join('');
+    let btn = '';
+    if (mode === 'market') {
+      const can = g.phase === 'recruit' && g.recruitsLeft > 0 && E.canAfford(g, who) && !g.pending;
+      btn = `<button class="btn small ${can ? 'primary' : ''}" data-action="recruit" data-who="${who}" ${can ? '' : 'disabled'}>Recruit</button>`;
+    }
+    return `<article class="person">
+      <header><h3>${esc(p.name)}</h3><span class="title">${esc(p.title)}</span></header>
+      <div class="tags"><span class="tag cost">${costText(p.cost)}</span><span class="tag">${bonusText(p.bonus)}</span>${roleTags(who)}</div>
+      <ul class="brings">${brings}</ul>
+      ${btn}
+    </article>`;
+  }
+
+  function marketHtml() {
+    const ambitious = g.bandsFired.restless ? 'The Ambitious have joined the market deck.' : 'The Ambitious join the market deck at Pressure 5.';
+    return `<section class="panel" aria-label="Market">
+      <div class="panel-head"><h2>Market</h2><span class="muted">${g.marketDeck.length} in the market deck · ${ambitious}</span></div>
+      <div class="market">${g.market.map((w) => personHtml(w, 'market')).join('') || '<p class="muted">The market is empty.</p>'}</div>
+    </section>`;
+  }
+
+  function crewHtml() {
+    const canSil = E.canSilence(g);
+    const items = g.crew.map((who) => {
+      const p = P[who];
+      let ctl = '';
+      if (ui.confirmSilence === who) {
+        ctl = `<div class="confirm">Silence ${esc(p.name)}? You lose ${bonusText(p.bonus)} and their 2 cards, and take +3 Pressure. Once per game.
+          <button class="btn small danger" data-action="silence" data-who="${who}">Silence</button><button class="btn small" data-action="silence-no">Keep</button></div>`;
+      } else if (canSil) {
+        ctl = `<button class="btn small" data-action="silence-ask" data-who="${who}">Silence…</button>`;
+      }
+      return `<li><div class="who"><b>${esc(p.name)}</b><span class="muted">${bonusText(p.bonus)}</span></div><div class="tags">${roleTags(who)}</div>${ctl}</li>`;
+    }).join('');
+    const gone = g.silenced.length ? `<p class="muted" style="margin:8px 0 0">Silenced: ${g.silenced.map((w) => P[w].name).join(', ')}.</p>` : '';
+    return `<section class="panel" aria-label="Your crew">
+      <h2>Your crew <span class="muted num">(${g.crew.length})</span></h2>
+      ${items ? `<ul class="crew">${items}</ul>` : '<p class="muted" style="margin:0">Nobody yet. Recruit from the market.</p>'}${gone}
+    </section>`;
+  }
+
+  function sheetHtml(info) {
+    const statRow = (s) => {
+      const key = info.stats.includes(s);
+      const pips = Array.from({ length: 10 }, (_, i) => `<span class="pip ${i < g.stats[s] ? 'on' : ''}"></span>`).join('');
+      return `<div class="stat ${key ? 'key' : ''}"><span class="label">${SN[s]}</span><span class="pips">${pips}</span><span class="num">${g.stats[s]}</span></div>`;
+    };
+    const mp = E.maxPrep(g);
+    const prepPips = Array.from({ length: mp }, (_, i) => `<span class="pip ${i < g.prep ? 'on' : ''}"></span>`).join('');
+    return `<section class="panel" aria-label="Your sheet">
+      <h2>Your sheet</h2>
+      <div class="stats">
+        ${['charm', 'military', 'political'].map(statRow).join('')}
+        <div class="stat"><span class="label">Prepared</span><span class="pips ${mp === 5 ? 'five' : 'three'}">${prepPips}</span><span class="num">${g.prep}</span></div>
+      </div>
+      <div class="onceuse"><span>${g.feastUsed ? '☑' : '☐'} Feast (once)</span><span>${g.silenceUsed ? '☑' : '☐'} Silence (once)</span></div>
+    </section>`;
+  }
+
+  function zoneList(ids) {
+    const counts = {};
+    for (const id of ids) { const c = E.card(g, id); const k = (c.bad ? '✗ ' : '') + c.name; counts[k] = (counts[k] || 0) + 1; }
+    const rows = Object.keys(counts).sort().map((k) => `<li>${esc(k)}${counts[k] > 1 ? ` ×${counts[k]}` : ''}</li>`).join('');
+    return rows ? `<ul class="zonelist">${rows}</ul>` : '<p class="muted" style="margin:4px 0 0">Empty.</p>';
+  }
+
+  function deckHtml() {
+    return `<section class="panel" aria-label="Deck and discard">
+      <h2>Cards</h2>
+      <details class="zone"><summary>Deck: <span class="num">${g.deck.length}</span> (what's left, not in order)</summary>${zoneList(g.deck)}</details>
+      <details class="zone"><summary>Discard: <span class="num">${g.discard.length}</span></summary>${zoneList(g.discard)}</details>
+    </section>`;
+  }
+
+  function logHtml() {
+    const items = g.log.slice().reverse().map((l) => `<li class="${l.kind}">${esc(l.text)}</li>`).join('');
+    return `<section class="panel" aria-label="What happened">
+      <h2>What happened</h2>
+      <ul class="log">${items}</ul>
+    </section>`;
+  }
+
+  function rulesHtml() {
+    return `<section class="panel rules" aria-label="Rules">
+      <details><summary><b>Rules cheat sheet (v0.3)</b></summary>
+        <p><b>A turn.</b></p>
+        <ol>
+          <li><b>Strike?</b> At the start of your turn, instead of everything else, if your two stats reach the target.</li>
+          <li><b>Push?</b> Once a turn: +2 Pressure, draw 2.</li>
+          <li><b>Act</b> with one card: do its Action.</li>
+          <li><b>Reveal</b> the rest: each gives its Resource. ✗ cards cost you.</li>
+          <li><b>Recruit one</b> from the market, or hold the Feast (once a game: pay 6, −3 Pressure).</li>
+          <li><b>End:</b> discard everything, Pressure +1 (+1 per Jumpy), refill the market, draw 5.</li>
+        </ol>
+        <p><b>Lie low</b> instead of 2–5: discard your hand, nothing in it counts.</p>
+        <p><b>Silence</b> once a game: remove someone and their cards, lose their bonus, +3 Pressure.</p>
+        <p><b>The strike.</b> Target: the Emperor's number, −1 per Inside, +1 after Uneasy. Nerve: d6, +1 per Blade, +1 per Preparation, −1 per rival pair; need your band's number. A 1 always misses. Miss with a Cover: they're silenced (free), you lose your Preparations, Pressure jumps to the next band, and you can strike again later. Miss without one: foiled.</p>
+        <div class="tablewrap"><table><thead><tr><th>Die needs</th><th>2 or less</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7+</th></tr></thead>
+          <tbody><tr><td>Chance</td><td>83%</td><td>67%</td><td>50%</td><td>33%</td><td>17%</td><td>0%</td></tr></tbody></table></div>
+        <p class="muted">Readings this build makes where the rules are open: jumping past a band fires its effect; the strike replaces your turn, and the turn then ends as usual (Pressure +1); a Cover taking the fall doesn't use up your silence; with Dinner Invitation, the Feast takes one of your two recruits; you can silence before a voluntary strike but not before a forced one; stats stop at 10.</p>
+      </details>
+    </section>`;
+  }
+
+  // ------------------------------------------------------------- modals
+
+  function modalHtml(info) {
+    if (!ui.modal && !g.pending) return '';
+    if (g.pending) {
+      const rec = g.tally.strikes[g.tally.strikes.length - 1];
+      return `<div class="scrim" role="dialog" aria-modal="true" aria-labelledby="mtitle"><div class="modal">
+        <h2 id="mtitle">You missed</h2>
+        <div class="die">${rec ? rec.roll : '?'}</div>
+        <p>Choose which Cover takes the fall. They're silenced, you lose all your Preparations, and Pressure jumps to the next band.</p>
+        <div class="actions">${g.pending.options.map((w) => `<button class="btn primary" data-action="cover" data-who="${w}">${esc(P[w].name)} (${bonusText(P[w].bonus)}${P[w].jumpy ? ', Jumpy' : ''})</button>`).join('')}</div>
+      </div></div>`;
+    }
+    const m = ui.modal;
+    if (m.type === 'strike' && m.stage === 'confirm') {
+      const dieNeed = info.need <= 2 ? '2 or more' : info.need >= 7 ? 'a 7 (impossible)' : `${info.need} or more`;
+      return `<div class="scrim" role="dialog" aria-modal="true" aria-labelledby="mtitle"><div class="modal">
+        <h2 id="mtitle">${g.forcedStrike ? 'You must strike' : 'Strike now?'}</h2>
+        <ul class="sum">
+          <li>${SN[info.stats[0]]} + ${SN[info.stats[1]]}: <b>${info.total}</b> against a target of <b>${info.target}</b>${info.reaches ? ' <span class="good-text">✓</span>' : ' <span class="bad-text">✗ short: the plot is foiled</span>'}</li>
+          ${info.reaches ? `<li>Nerve: you need <b>${info.band.need}+</b> while ${info.band.name}.</li>
+          <li>Blades ${signed(info.bladeBonus)}, Preparations ${signed(info.prep)}, rivals ${signed(-info.rivals.length)}: <b>${signed(info.mod)}</b>.</li>
+          <li>The die needs <b>${dieNeed}</b>, and a 1 always misses: <b>${pct(info.chance)}</b>.</li>
+          <li>${info.covers.length ? `If you miss, ${info.covers.map((w) => P[w].name).join(' or ')} can take the fall.` : '<span class="bad-text">No Cover: if you miss, the plot is foiled.</span>'}</li>` : ''}
+        </ul>
+        <div class="actions">
+          <button class="btn primary" data-action="strike-roll">${info.reaches ? 'Roll the die' : 'Strike anyway'}</button>
+          ${g.forcedStrike ? '' : '<button class="btn" data-action="modal-close">Not yet</button>'}
+        </div>
+      </div></div>`;
+    }
+    if (m.type === 'strike' && m.stage === 'result') {
+      const rec = m.rec;
+      let verdict, cls, text;
+      if (rec.short) { verdict = 'Foiled'; cls = 'lose'; text = `You struck with ${rec.total} against a target of ${rec.target}.`; }
+      else if (rec.hit) { verdict = 'The Emperor is dead'; cls = 'win'; text = `You rolled ${rec.roll}${rec.need <= 1 ? '' : `, needing ${Math.max(2, rec.need)}+`}.`; }
+      else if (rec.cover) { verdict = 'Missed'; cls = 'lose'; text = `You rolled ${rec.roll}${rec.roll === 1 ? ' (a 1 always misses)' : `, needing ${rec.need}+`}. ${rec.cover} takes the fall and is silenced. You lose your Preparations, and Pressure jumps to the next band.`; }
+      else { verdict = 'Foiled'; cls = 'lose'; text = `You rolled ${rec.roll}${rec.roll === 1 ? ' (a 1 always misses)' : `, needing ${rec.need}+`}, and nobody was there to take the fall.`; }
+      return `<div class="scrim" role="dialog" aria-modal="true" aria-labelledby="mtitle"><div class="modal">
+        ${rec.short ? '' : `<div class="die ${m.rolling ? 'rolling' : ''}">${rec.roll}</div>`}
+        <p class="verdict ${cls}" id="mtitle">${verdict}</p>
+        <p style="margin:0;text-align:center">${esc(text)}</p>
+        <div class="actions" style="justify-content:center"><button class="btn primary" data-action="modal-close">${g.phase === 'gameover' ? 'See the result' : 'Carry on'}</button></div>
+      </div></div>`;
+    }
+    if (m.type === 'gameover') {
+      const r = g.result;
+      return `<div class="scrim" role="dialog" aria-modal="true" aria-labelledby="mtitle"><div class="modal">
+        <p class="verdict ${r.win ? 'win' : 'lose'}" id="mtitle">${r.win ? 'The Emperor is dead' : 'The plot is foiled'}</p>
+        <p style="margin:0">${summaryText()}</p>
+        <p class="eyebrow">Playtest-log entry (paste into docs/prototype/playtest-log.md)</p>
+        <textarea id="logentry" class="logentry" aria-label="Playtest-log entry">${esc(logEntry())}</textarea>
+        <div class="actions">
+          <button class="btn primary" data-action="copy">Copy</button>
+          <button class="btn" data-action="again">New game</button>
+          <button class="btn" data-action="replay">Replay this seed</button>
+          <button class="btn" data-action="gameover-hide">Look at the table</button>
+        </div>
+      </div></div>`;
+    }
+    return '';
+  }
+
+  function summaryText() {
+    const r = g.result;
+    const t = r.turn;
+    return `${r.win ? 'You won' : 'You lost'} on turn ${t} against ${esc(EM[g.emperor].name)}, with ${g.crew.length} in your crew and Pressure at ${g.pressure}.`;
+  }
+
+  function median(xs) {
+    if (!xs.length) return null;
+    const s = xs.slice().sort((a, b) => a - b);
+    return s[Math.floor(s.length / 2)];
+  }
+
+  function logEntry() {
+    const r = g.result;
+    const strikes = g.tally.strikes;
+    const last = strikes[strikes.length - 1];
+    const today = new Date();
+    const date = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    const result = r.win ? 'win' : r.reason === 'short' ? 'foiled, short of the target' : 'foiled on the nerve roll';
+    const covers = strikes.filter((s) => s.cover).map((s) => `${s.cover} (turn ${s.turn})`);
+    let strikeLine = 'none';
+    if (last) {
+      strikeLine = last.short
+        ? `turn ${last.turn} · band ${last.band} · forced, ${last.total} against a target of ${last.target}`
+        : `turn ${last.turn} · band ${last.band} · Blades ${last.blades} · Preparations ${last.prep} · rivals ${last.rivals} · needed ${Math.max(2, last.need)}+ on the die (odds ${pct(last.chance)}) · rolled ${last.roll} · Cover used? ${covers.length ? covers.join(', ') : 'no'}`;
+      if (strikes.length > 1) strikeLine += ` · ${strikes.length} strikes in all`;
+    }
+    const crew = g.crew.map((w) => P[w].name).join(', ') || 'nobody';
+    const silenced = g.tally.silenced ? `silenced ${g.tally.silenced.who} on turn ${g.tally.silenced.turn}` : null;
+    const feast = g.tally.feastTurn ? `Feast on turn ${g.tally.feastTurn}` : null;
+    const fs = [feast, silenced].filter(Boolean).join('; ') || 'neither';
+    const med = median(ui.turnTimes);
+    const timing = med == null ? 'not measured' : `about ${med} seconds (median of ${ui.turnTimes.length} turns, timed by the digital build)`;
+    return `## Game ${ui.gameNo} — ${date} — rules ${E.RULES_VERSION} (digital build, seed ${g.seed})
+
+- **Emperor:** ${EM[g.emperor].name}
+- **Result:** ${result}
+- **Strike:** ${strikeLine}
+- **Crew:** ${crew}${g.silenced.length ? ` (gone: ${g.silenced.map((w) => P[w].name).join(', ')})` : ''}
+- **Pushes:** ${g.tally.pushes} · **Lay low:** ${g.tally.lieLow} · **Acted with a bad card:** ${g.tally.badActs} times
+- **Feast or silence used?** ${fs}
+- **Roughly how long a turn took:** ${timing}
+- **Best moment:**
+- **Most boring moment:**
+- **Rules changed:** none
+- **Questions 1–5:**
+`;
+  }
+
+  // -------------------------------------------------------------- boot
+
+  document.addEventListener('click', onClick);
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape' && ui && ui.modal && !g.pending && !(ui.modal.type === 'strike' && ui.modal.stage === 'result') && !g.forcedStrike) {
+      ui.modal = null; render();
+    }
+  });
+
+  function boot(data) {
+    const saved = (data && data.g) ? data : load();
+    if (saved && saved.g && saved.g.version === E.RULES_VERSION) {
+      g = saved.g;
+      ui = freshUi(null);
+      if (saved.ui) { ui.turnTimes = saved.ui.turnTimes || []; ui.gameNo = saved.ui.gameNo || 1; }
+      if (g.phase === 'gameover') ui.modal = null;
+      render();
+    } else {
+      ui = null;
+      startGame({});
+    }
+  }
+
+  const hot = window.claude && window.claude.hot;
+  if (hot && hot.snapshot) {
+    try { hot.snapshot(() => ({ g, ui: ui ? { turnTimes: ui.turnTimes, gameNo: ui.gameNo } : null })); } catch (e) { /* not available */ }
+  }
+  if (hot && hot.ready) hot.ready(boot);
+  else boot(hot && hot.data ? hot.data : {});
+})();
+</script>
+</body>
+</html>

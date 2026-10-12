@@ -4,9 +4,10 @@
 > Recruit co-conspirators, learn his weaknesses, set the scene like a
 > chessboard, and beat the clock before the plot slips out of your hands.
 
-**Status:** 🌱 idea stage, with a paper prototype to play. Nothing
-digital is being built yet — this repo is the one place every idea for the
-game lives.
+**Status:** 🌱 idea stage, with a paper prototype to play, and a quick
+[digital build](play/) of it for testing the rules fast (open
+`play/index.html`). The real game isn't being built yet — this repo is the
+one place every idea for the game lives.
 
 **Format:** board game first ([decisions](docs/decisions.md)) — a
 deckbuilder where the deck is built by drafting co-conspirators, driven by
@@ -67,6 +68,7 @@ once they hit a value you have to plot.
 | [`docs/decisions.md`](docs/decisions.md) | Decisions made so far. |
 | [`docs/sprint-1.md`](docs/sprint-1.md) | Draft plan for the first sprint: the card layer, on paper. |
 | [`docs/prototype/`](docs/prototype/) | The paper prototype: [rules](docs/prototype/rules.md), [cards](docs/prototype/cards.md) and a [playtest log](docs/prototype/playtest-log.md). |
+| [`play/`](play/) | A quick digital build of the paper prototype: open `index.html` in a browser. It writes a playtest-log entry at the end of each game. |
 | [`docs/design-review.md`](docs/design-review.md) | Claude's take: what's strong, what's risky. |
 | [`docs/audit.md`](docs/audit.md) | Where the notes contradict each other, what's missing, empty pages — full lists in [`docs/audit/`](docs/audit/). |
 | [`docs/open-questions.md`](docs/open-questions.md) | Decisions still to make — the agenda for the next session. |
