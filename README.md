@@ -4,13 +4,16 @@
 > Recruit co-conspirators, learn his weaknesses, set the scene like a
 > chessboard, and beat the clock before the plot slips out of your hands.
 
-**Status:** 🌱 idea stage. Nothing is being built yet — this repo is the one
-place every idea for the game lives.
+**Status:** 🌱 idea stage, with a first paper prototype to play. Nothing
+digital is being built yet — this repo is the one place every idea for the
+game lives.
 
-**Format:** board game first ([decisions](docs/decisions.md)).
-**Next:** [Sprint 1](docs/sprint-1.md) *(draft)* — find the 30-second turn
-of the card layer (co-conspirators, cards, stats, Pressure) on paper. The
-murder stage is parked for now.
+**Format:** board game first ([decisions](docs/decisions.md)) — a
+deckbuilder where the deck is built by drafting co-conspirators, driven by
+a market-deckbuilder turn (D4, D5).
+**Next:** play the [paper prototype](docs/prototype/rules.md) — the card
+layer of [Sprint 1](docs/sprint-1.md), solo, about 11 turns, with a
+stand-in ending. The murder stage is parked for now.
 
 ---
 
@@ -59,6 +62,7 @@ once they hit a value you have to plot.
 | [`docs/design/`](docs/design/) | One doc per system, written up from the notes, with gaps marked. |
 | [`docs/decisions.md`](docs/decisions.md) | Decisions made so far. |
 | [`docs/sprint-1.md`](docs/sprint-1.md) | Draft plan for the first sprint: the card layer, on paper. |
+| [`docs/prototype/`](docs/prototype/) | The paper prototype: [rules](docs/prototype/rules.md), [cards](docs/prototype/cards.md) and a [playtest log](docs/prototype/playtest-log.md). |
 | [`docs/design-review.md`](docs/design-review.md) | Claude's take: what's strong, what's risky. |
 | [`docs/audit.md`](docs/audit.md) | Where the notes contradict each other, what's missing, empty pages — full lists in [`docs/audit/`](docs/audit/). |
 | [`docs/open-questions.md`](docs/open-questions.md) | Decisions still to make — the agenda for the next session. |

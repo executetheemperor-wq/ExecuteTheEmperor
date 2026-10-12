@@ -789,6 +789,8 @@ The short version is in [`../audit.md`](../audit.md).
 - Option A: The player's own deck can be built normally (rewards, paid removal), while co-conspirator cards come as locked bundles.
 - Option B: Only co-conspirators shape the deck, so "deckbuilding" means building the conspiracy. Forced cards are curse cards that belong to the blackmailer's bundle.
 
+**✅ Decided 2026-10-12 — Option B:** "Deck is built by drafting co-conspirators yeah." ([D4](../decisions.md))
+
 ## CA-38 · How cards are drawn: by tag for each event, or from a hand you carry?
 
 **Docs:** [Cards, events and pathing](../design/05-cards-events-and-pathing.md)
@@ -807,6 +809,8 @@ The short version is in [`../audit.md`](../audit.md).
 
 - Option A: Each event draws N cards from the pool matching its tag. Separately, a small held hand keeps one-time cards and forced cards.
 - Option B: A StS-style deck and hand that carry over between events, with an event's tag limiting which cards can be played.
+
+**For Sprint 1:** loop B ([D5](../decisions.md)) uses a deck and a hand you draw each turn, with no tags. Whether events later call for card types (loop A) is open.
 
 ## CA-39 · Propaganda campaigns: an action anyone can take (own page) vs a co-conspirator's one-time card (3.2)
 

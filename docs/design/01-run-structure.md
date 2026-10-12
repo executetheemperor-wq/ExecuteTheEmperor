@@ -38,6 +38,8 @@ Loop)* More in [Cards, events and pathing](05-cards-events-and-pathing.md).
   you waiting forever. *(OneNote › 1.1 Pressure)*
 
 **Gap —** what a "turn" is: one node on the map? one event? one phase?
+For Sprint 1 it's loop B's turn — draw five, play, recruit and claim, then
++1 Pressure ([D5](../decisions.md)). The larger game cycle is still open.
 
 ## How a run ends
 

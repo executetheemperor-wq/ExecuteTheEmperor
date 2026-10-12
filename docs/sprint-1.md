@@ -1,7 +1,11 @@
 # Sprint 1 — the card layer (draft)
 
 > **Status: draft proposal.** Your direction, my fleshing-out. Strike
-> anything that's wrong. *(Chat › Notes 3–4)*
+> anything that's wrong. *(Chat › Notes 3–5)*
+>
+> **Ready to play:** a first [paper prototype](prototype/rules.md) built on
+> D4 and D5 — rules, all [69 cards](prototype/cards.md), and a
+> [playtest log](prototype/playtest-log.md).
 
 ## Your call so far
 
@@ -9,6 +13,9 @@
   card-building side. ([D1](decisions.md))
 - **Board game first.** ([D2](decisions.md))
 - **It's about the 30-second turn first.** ([D3](decisions.md))
+- **The deck is built by drafting co-conspirators.** ([D4](decisions.md))
+- **Loop B is the driver**; A and C may come in later to flesh out the
+  larger game cycle. ([D5](decisions.md))
 
 ## Goal
 
@@ -37,8 +44,13 @@ anything about the murder is decided. On paper, at the table.
 
 ## Candidate turn loops *(suggestions)*
 
-Three different shapes for the 30-second turn, to try against each other on
-paper. All three use the same co-conspirators, Pressure track and stats.
+Three different shapes for the 30-second turn. All three use the same
+co-conspirators, Pressure track and stats.
+
+→ **Decided: B drives the turn** ([D5](decisions.md)). You expect all three
+to come into play eventually, with A and C coming in at later design points
+to flesh out the larger game cycle. The [prototype](prototype/rules.md) is
+built on B.
 
 **A · Event response** — closest to the notes.
 1. Reveal an event (it asks for a card type — e.g. *Military*).
@@ -49,7 +61,8 @@ paper. All three use the same co-conspirators, Pressure track and stats.
    card).
 5. +1 Pressure.
 
-**B · Market deckbuilder** — Dominion/Clank-style.
+**B · Market deckbuilder** — Dominion/Clank-style. ✅ *The driver
+([D5](decisions.md)).*
 1. Draw 5 from your plot deck (your cards + your co-conspirators', curses
    included).
 2. Spend them as currency (Influence, Money, Charm…) to recruit from the
@@ -108,19 +121,22 @@ the long version of this; its gaps pass also proposed
 [starting defaults](audit/gaps.md#suggested-minimum-for-a-one-assassination-paper-prototype)
 for most of these.
 
-0. **What "card building" means.** You can't add or remove a
-   co-conspirator's cards, only the person — so is the deck built card by
-   card, or by recruiting? Loop B above leans into "by recruiting". *(audit
+0. ~~**What "card building" means.**~~ → **By drafting co-conspirators**
+   ([D4](decisions.md)). *(audit
    [CA-37](audit/contradictions.md#ca-37--deckbuilder-at-heart-and-card-building-vs-cannot-add-or-remove-cards))*
-1. **What is a turn?** Pick one of the candidate loops above (or mix them).
-2. **The first 8–10 co-conspirators**: a cost, stat modifiers, 2–3 cards
-   and one trait each.
-3. **The first 12–15 events**, each calling for a card type.
-4. **Card anatomy**: type, effect, and any cost.
-5. **The placeholder ending**, or a better one.
-6. **Solo or multiplayer** for the table version (rival conspirators?).
-7. **One source of randomness or two** — the card draw, the dice, or both?
-   ([design review](design-review.md))
+1. ~~**What is a turn?**~~ → **Loop B** ([D5](decisions.md)): draw five,
+   play, recruit one and claim one event, Pressure +1.
+2. **The first 8–10 co-conspirators** — *drafted:* [10 in the prototype](prototype/cards.md#co-conspirators-10).
+3. **The first 12–15 events** — *drafted:* [15](prototype/cards.md#events-15).
+   Under loop B they're bought from a row, not answered with a card type.
+4. **Card anatomy** — *drafted:* Money and/or Influence, an effect, and
+   sometimes a cost to play. Co-conspirators show Joins if, Cost, Standing,
+   Trait and Access. ([cards](prototype/cards.md))
+5. **The placeholder ending** — *drafted:* [the strike](prototype/rules.md#the-strike).
+6. **Solo or multiplayer** — *drafted as solo* to test the turn; still open
+   ([Q26](open-questions.md#board-game)).
+7. **One source of randomness or two** — *drafted:* the card draw all game,
+   and a single die roll at the very end. ([design review](design-review.md))
 
 ## Why park the murder *(context for later)*
 

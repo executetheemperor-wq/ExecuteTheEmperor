@@ -4,6 +4,10 @@
 raise some of your stats, unlock new areas and abilities, open up events and
 interactions, and strengthen the plot. *(OneNote › 3. Co-Conspirators)*
 
+> **Decided ([D4](../decisions.md)):** the deck is built by drafting
+> co-conspirators. The [paper prototype](../prototype/cards.md#co-conspirators-10)
+> has a first 10.
+
 ## Recruiting them: the draft
 
 - You **draft** co-conspirators from a selection — say **3 to start**.

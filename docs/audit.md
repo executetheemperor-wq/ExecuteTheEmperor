@@ -17,17 +17,18 @@ decisions**.
 
 These sit right on the card layer that [Sprint 1](sprint-1.md) is about.
 
-1. **What "card building" means.** The notes call it "a deckbuilder at
-   heart", but you can't add or remove a co-conspirator's cards — only the
-   person. So is the deck built card by card, or by recruiting people?
+1. ~~**What "card building" means.**~~ ✅ **Decided: by drafting
+   co-conspirators** ([D4](decisions.md)).
    [CA-37](audit/contradictions.md#ca-37--deckbuilder-at-heart-and-card-building-vs-cannot-add-or-remove-cards)
 2. **What a card is.** Co-conspirators are "cards", they *bring* cards, and
    intel comes as cards — three different things. And "pool" means the
    draft candidates, your crew *and* your cards. [CA-36](audit/contradictions.md#ca-36--card-at-three-levels-co-conspirators-as-cards-the-cards-they-bring-and-intel-cards) [CA-34](audit/contradictions.md#ca-34--pool-is-used-for-three-things)
    [CE-01](audit/gaps.md#ce-01--card-template-and-card-pool-types---blocker)
 3. **Hand or draw-per-event?** Events draw from a matching pool, yet
-   blackmailers force cards "into your hand". [CA-38](audit/contradictions.md#ca-38--how-cards-are-drawn-by-tag-for-each-event-or-from-a-hand-you-carry) [CE-02](audit/gaps.md#ce-02--a-hand-or-drawing-from-a-pool-at-each-event-and-what-can-you-add-to-your-deck---blocker)
+   blackmailers force cards "into your hand". *Loop B ([D5](decisions.md))
+   implies a deck and a hand; the [prototype](prototype/rules.md) uses one.* [CA-38](audit/contradictions.md#ca-38--how-cards-are-drawn-by-tag-for-each-event-or-from-a-hand-you-carry) [CE-02](audit/gaps.md#ce-02--a-hand-or-drawing-from-a-pool-at-each-event-and-what-can-you-add-to-your-deck---blocker)
 4. **What a turn is** — "every action" and "each turn" both add Pressure.
+   *For Sprint 1, loop B's turn ([D5](decisions.md)).*
    [CA-04](audit/contradictions.md#ca-04--what-is-a-turn-turn-vs-action-vs-day-vs-calendar-date-vs-time-of-day) [RS-01](audit/gaps.md#rs-01--what-a-turn-and-a-round-is---blocker)
 5. **One stat list**, which direction each runs (high Pressure and high
    Suspicion are *bad*), and a cap so checks can always fail. [CA-09](audit/contradictions.md#ca-09--two-different-player-stat-lists-stats-page-vs-1-variables)
@@ -50,6 +51,8 @@ These sit right on the card layer that [Sprint 1](sprint-1.md) is about.
 
 The gaps pass also wrote **suggested defaults** for most of these — see
 [its prototype suggestions](audit/gaps.md#suggested-minimum-for-a-one-assassination-paper-prototype).
+The [paper prototype](prototype/rules.md) (2026-10-12) drafts an answer to
+each of the rest, for a playtest to confirm or throw out.
 
 ## Bigger calls (after Sprint 1)
 

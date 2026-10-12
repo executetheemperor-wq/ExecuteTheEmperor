@@ -2,6 +2,11 @@
 
 ## Cards
 
+> **Decided:** the deck is built by drafting co-conspirators
+> ([D4](../decisions.md)), and the turn is loop B — draw a hand, spend it
+> in a market ([D5](../decisions.md)). See the
+> [paper prototype](../prototype/rules.md).
+
 Cards are how the game **gives you information** and how you **take
 actions**. *(OneNote › 1. Variables)*
 

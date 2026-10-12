@@ -62,6 +62,25 @@ repo rather than words from the notes — rename freely.
 | **Foiled** | The plot fails; a chance you're executed. | [Assassination](design/07-the-assassination.md) |
 | **Ides** | Bonus event: harder, but less suspicion on co-conspirators. | [Cards](design/05-cards-events-and-pathing.md) |
 
+## Paper prototype *(proposed)*
+
+Words used in the [Sprint 1 paper prototype](prototype/rules.md). All
+proposed — rename freely.
+
+| Term | Meaning | Doc |
+|---|---|---|
+| **Market** | The row of 3 face-up co-conspirators you can recruit from — the draft pool, on the table. | [Rules](prototype/rules.md#recruiting) |
+| **Event row** | The 3 face-up political events you can claim. | [Rules](prototype/rules.md#a-turn) |
+| **Bundle** | A co-conspirator's three cards. They come and go with the person ([D4](decisions.md)). | [Cards](prototype/cards.md#co-conspirators-10) |
+| **Standing** | How a co-conspirator changes your stats while they're with you. | [Rules](prototype/rules.md#recruiting) |
+| **Access** | What a co-conspirator gives you a way into — Palace, Blade, Streets, Actors, Poison, Gold, Praetorians. | [Cards](prototype/cards.md#co-conspirators-10) |
+| **Uninvited** | A co-conspirator who joins unless you pay their Demand. | [Rules](prototype/rules.md#recruiting) |
+| **Secret** | One of the Emperor's intel cards, dealt face down until revealed. | [Rules](prototype/rules.md#the-emperors-secrets) |
+| **Route** | The plan a revealed secret opens: two stats, and the access that helps. | [Cards](prototype/cards.md#the-emperors-secrets-6) |
+| **Guard** | The number your route must reach: set by Pressure, plus your Suspicion. | [Rules](prototype/rules.md#the-strike) |
+| **The strike** | The prototype's stand-in for the night of the murder. | [Rules](prototype/rules.md#the-strike) |
+| **Nerve roll** | The last roll: a die against the lowest Happiness among those in on the night. | [Rules](prototype/rules.md#the-strike) |
+
 ## Reputation and meta
 
 | Term | Meaning | Doc |

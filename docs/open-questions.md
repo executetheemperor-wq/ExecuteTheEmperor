@@ -3,7 +3,9 @@
 Decisions still to make. When one's answered, write the answer into the
 matching design doc and [decisions](decisions.md), and delete the question.
 The [audit](audit.md) has the full picture — 72 contradictions and 57 gaps
-— and its "Resolve first" list is the Sprint 1 agenda.
+— and its "Resolve first" list is the Sprint 1 agenda. The
+[paper prototype](prototype/rules.md) drafts answers to many of the
+questions below; they stay open until a playtest backs them.
 
 ## Answered by the notebook
 
@@ -26,8 +28,8 @@ These were open before the OneNote notebook was imported:
 
 - ~~Board game, video game, or board game first?~~ → **board game first**
   ([D2](decisions.md)).
-- **Which turn loop?** — the 30-second turn comes first
-  ([D3](decisions.md)); three candidates in [Sprint 1](sprint-1.md#candidate-turn-loops-suggestions).
+- ~~Which turn loop?~~ → **loop B drives it**, with A and C maybe later
+  ([D5](decisions.md)). The 30-second turn comes first ([D3](decisions.md)).
 - **How is the Emperor actually killed?** Parked ([D1](decisions.md)).
   Ideas so far: several win conditions; a final Fate of the
   Fellowship-style check; a boss fight with your built-up cards; or the
@@ -36,10 +38,12 @@ These were open before the OneNote notebook was imported:
 
 ## Decide first (needed for a prototype)
 
-0. **What does "card building" mean** — building the deck card by card, or by
-   recruiting people (whose cards come as a locked bundle)? *(audit [CA-37](audit/contradictions.md#ca-37--deckbuilder-at-heart-and-card-building-vs-cannot-add-or-remove-cards))*
+0. ~~What does "card building" mean?~~ → **by drafting co-conspirators**
+   ([D4](decisions.md)).
 1. **Three phases or four**, and in what order? *(audit [CA-01](audit/contradictions.md#ca-01--three-phases-in-basics-vs-four-phase-pages))*
-2. **What is a turn?** *(audit [CA-04](audit/contradictions.md#ca-04--what-is-a-turn-turn-vs-action-vs-day-vs-calendar-date-vs-time-of-day))*
+2. **What is a turn?** For Sprint 1, loop B's turn ([D5](decisions.md)).
+   Still open for the larger game cycle — a day, a node on a map?
+   *(audit [CA-04](audit/contradictions.md#ca-04--what-is-a-turn-turn-vs-action-vs-day-vs-calendar-date-vs-time-of-day))*
 3. **Who is the player character**, and what do they start with?
 4. **The core stat list.** *(audit [CA-09](audit/contradictions.md#ca-09--two-different-player-stat-lists-stats-page-vs-1-variables))*
 5. ~~How does the night of the murder resolve?~~ Parked ([D1](decisions.md)) — Sprint 1 uses a [placeholder ending](sprint-1.md#placeholder-ending). *(audit [CA-60](audit/contradictions.md))*
