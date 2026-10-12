@@ -169,9 +169,9 @@
   }
   function rollD6(g) { return 1 + Math.floor(rand(g) * 6); }
 
+  // Any seed is treated as text and hashed to an int32, so the seed shown to
+  // the player (always a string) reproduces the game.
   function seedFrom(value) {
-    // Accept numbers or any string; hash strings to an int32.
-    if (typeof value === 'number' && Number.isFinite(value)) return value | 0;
     const s = String(value);
     let h = 2166136261;
     for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
@@ -274,8 +274,10 @@
     g.crew.push(who);
     const gains = [];
     for (const s of Object.keys(p.bonus)) {
-      g.stats[s] = clamp(g.stats[s] + p.bonus[s], 0, STAT_MAX);
-      gains.push(`+${p.bonus[s]} ${STAT_NAMES[s]}`);
+      const before = g.stats[s];
+      g.stats[s] = clamp(before + p.bonus[s], 0, STAT_MAX);
+      const got = g.stats[s] - before;
+      gains.push(got === p.bonus[s] ? `+${got} ${STAT_NAMES[s]}` : `+${got} ${STAT_NAMES[s]}, capped at ${STAT_MAX}`);
     }
     for (const def of p.cards) {
       g.cards[def] = def;
@@ -307,8 +309,10 @@
         `You're already holding ${g.prep} Preparations, the most you can.`, 'prep');
     }
     if (fx.military) {
-      g.stats.military = clamp(g.stats.military + fx.military, 0, STAT_MAX);
-      log(g, `+${fx.military} Military: now ${g.stats.military}.`, 'crew');
+      const before = g.stats.military;
+      g.stats.military = clamp(before + fx.military, 0, STAT_MAX);
+      const got = g.stats.military - before;
+      log(g, got > 0 ? `+${got} Military: now ${g.stats.military}.` : `Military is already ${STAT_MAX}, the most it can be.`, 'crew');
     }
     if (fx.draw) {
       const got = draw(g, fx.draw);
@@ -331,11 +335,12 @@
 
   function newGame(opts) {
     opts = opts || {};
-    const seedInput = opts.seed != null && opts.seed !== '' ? opts.seed : Math.floor(Math.random() * 1e9);
+    const given = opts.seed != null ? String(opts.seed).trim() : '';
+    const seed = given || String(Math.floor(Math.random() * 1e9));
     const g = {
       version: RULES_VERSION,
-      seed: String(seedInput),
-      rng: seedFrom(seedInput),
+      seed,
+      rng: seedFrom(seed),
       emperor: null,
       turn: 1,
       stats: { charm: 3, military: 3, political: 3 },
@@ -372,8 +377,10 @@
     g.market = willing.slice(0, 3);
     g.marketDeck = willing.slice(3);
 
+    // Always spend the draw, so choosing the Emperor doesn't change the shuffle.
     const keys = Object.keys(EMPERORS);
-    g.emperor = opts.emperor && EMPERORS[opts.emperor] ? opts.emperor : keys[Math.floor(rand(g) * keys.length)];
+    const drawn = keys[Math.floor(rand(g) * keys.length)];
+    g.emperor = opts.emperor && EMPERORS[opts.emperor] ? opts.emperor : drawn;
 
     log(g, `A new plot (seed ${g.seed}). You've learned this about the Emperor: ${EMPERORS[g.emperor].name}.`, 'band');
     draw(g, 5);
@@ -476,6 +483,7 @@
     g.prep = 0;
     const i = bandIndex(g.pressure);
     if (i < BANDS.length - 1) addPressure(g, BANDS[i + 1].min - g.pressure, 'the crew panics');
+    if (rec) rec.pressureAfter = g.pressure;
     if (g.pressure === PRESSURE_MAX) {
       g.strikeNextTurn = true;
       log(g, "You're at 20: you strike again at the start of your next turn.", 'band');

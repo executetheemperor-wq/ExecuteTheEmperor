@@ -110,6 +110,7 @@ summary.btn::-webkit-details-marker { display: none; }
 .cell.calm { background: var(--calm); } .cell.restless { background: var(--restless); } .cell.uneasy { background: var(--uneasy); }
 .cell.reckless { background: var(--reckless); } .cell.breaking { background: var(--breaking); }
 .cell.now { outline: 2px solid var(--ink); outline-offset: -2px; font-weight: 700; }
+@media (max-width: 480px) { .cell { font-size: 10px; letter-spacing: -0.04em; } }
 .bandnames { display: grid; grid-template-columns: 5fr 5fr 5fr 5fr 1.3fr; gap: 2px; font-size: 12px; color: var(--muted); margin-top: 4px; }
 .bandnames span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .effects { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 4px; font-size: 14px; }
@@ -318,23 +319,32 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
     </button>`;
   }
 
-  // What acting with this card would give, without peeking at the deck.
+  // What acting with this card would give. Runs the real engine on a copy of
+  // the game with the deck hidden, so caps and band effects count, but the
+  // preview can't peek at what you'd draw.
   function previewAct(id) {
     const c = E.card(g, id);
-    let money = c.action.money || 0, inf = c.action.inf || 0, pressure = c.action.pressure || 0;
-    for (const other of g.hand) {
-      if (other === id) continue;
-      const r = E.card(g, other).resource;
-      money += r.money || 0; inf += r.inf || 0; pressure += r.pressure || 0;
-    }
-    const bits = [`${Math.max(0, money)} Money`, `${Math.max(0, inf)} Influence`];
-    if (pressure) bits.push(`${signed(pressure)} Pressure`);
-    if (c.action.prep) bits.push(`+${c.action.prep} Preparation${c.action.prep > 1 ? 's' : ''}`);
-    if (c.action.military) bits.push(`+${c.action.military} Military`);
+    const h = E.clone(g);
+    h.deck = []; h.discard = [];
+    try { E.act(h, id); } catch (e) { return ''; }
+    const bits = [`${h.pool.money} Money`, `${h.pool.inf} Influence`];
+    if (h.pressure !== g.pressure) bits.push(`Pressure ${g.pressure} → ${h.pressure}`);
+    if (c.action.prep) bits.push(h.prep > g.prep ? `+${h.prep - g.prep} Preparation${h.prep - g.prep > 1 ? 's' : ''}` : 'no Preparation (you hold the most you can)');
+    if (c.action.military) bits.push(h.stats.military > g.stats.military ? `+${h.stats.military - g.stats.military} Military` : 'no Military (already 10)');
+    const reached = E.BANDS.filter((b) => b.effect && h.bandsFired[b.key] && !g.bandsFired[b.key]).map((b) => b.name);
     let extra = '';
     if (c.action.draw) extra = `, plus the Resource of the ${c.action.draw} cards you draw`;
     if (c.action.recruitTwice) extra = ', and you can recruit twice';
-    return `Act with <b>${esc(c.name)}</b> and reveal the rest: ${bits.join(', ')}${extra}. Then recruit.`;
+    const band = reached.length ? ` You reach ${reached.join(' and ')}, and its effect fires.` : '';
+    return `Act with <b>${esc(c.name)}</b> and reveal the rest: ${bits.join(', ')}${extra}.${band} Then recruit.`;
+  }
+
+  function pressureAfterCover(rec) {
+    if (rec.pressureAfter == null) return '';
+    if (rec.pressureAfter === E.PRESSURE_MAX) {
+      return rec.pressure === E.PRESSURE_MAX ? 'Pressure stays at 20, so you must strike again on your next turn.' : 'Pressure jumps to 20, so you must strike again on your next turn.';
+    }
+    return `Pressure jumps to ${rec.pressureAfter} (${E.bandOf(rec.pressureAfter).name}) before the turn ends.`;
   }
 
   // ----------------------------------------------------------- actions
@@ -354,10 +364,19 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
     save();
   }
 
+  // Every click re-renders the table, so the second click of a double-click
+  // would land on whatever control moved under the pointer. Ignore it.
+  let lockUntil = 0;
+
   function onClick(ev) {
     const el = ev.target.closest('[data-action]');
     if (!el || el.disabled) return;
     const a = el.dataset.action;
+    if (a !== 'copy') {
+      const now = performance.now();
+      if (ev.detail > 1 || now < lockUntil) return;
+      lockUntil = now + 300;
+    }
     const who = el.dataset.who;
     switch (a) {
       case 'select':
@@ -368,7 +387,7 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
       case 'act-empty': run('act', null); ui.flash = null; break;
       case 'push': run('push'); ui.flash = null; break;
       case 'lielow': run('lieLow'); ui.flash = { text: 'You lay low. Your hand was discarded and nothing in it counted.' }; break;
-      case 'recruit': run('recruit', who); break;
+      case 'recruit': run('recruit', who); ui.feastPick = false; break;
       case 'feast': {
         const splits = E.feastSplits(g);
         if (g.recruitsLeft > 1 && splits.length > 1 && !el.dataset.money) { ui.feastPick = true; break; }
@@ -383,20 +402,22 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
       case 'strike-open': ui.modal = { type: 'strike', stage: 'confirm' }; break;
       case 'strike-roll': {
         const before = g.tally.strikes.length;
+        ui.flash = null;
         run('strike');
         const rec = g.tally.strikes[before];
         ui.modal = rec ? { type: 'strike', stage: 'result', rec, rolling: true } : null;
         break;
       }
       case 'cover': run('chooseCover', who); ui.modal = { type: 'strike', stage: 'result', rec: g.tally.strikes[g.tally.strikes.length - 1] }; break;
-      case 'modal-close':
-        ui.modal = null;
-        if (g.phase === 'gameover') ui.modal = { type: 'gameover' };
-        else {
-          const rec = g.tally.strikes[g.tally.strikes.length - 1];
-          if (rec && rec.cover) ui.flash = { text: `You missed with a ${rec.roll}, and ${rec.cover} took the fall. Pressure jumped to the next band.`, bad: true };
+      case 'strike-cancel': ui.modal = null; break;
+      case 'modal-close': {
+        const m = ui.modal;
+        ui.modal = g.phase === 'gameover' ? { type: 'gameover' } : null;
+        if (!ui.modal && m && m.stage === 'result' && m.rec && m.rec.cover) {
+          ui.flash = { text: `You missed with a ${m.rec.roll}, and ${m.rec.cover} took the fall. ${pressureAfterCover(m.rec)}`, bad: true };
         }
         break;
+      }
       case 'gameover-show': ui.modal = { type: 'gameover' }; break;
       case 'gameover-hide': ui.modal = null; break;
       case 'copy': copyLog(el); return;
@@ -429,6 +450,9 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
 
   function render() {
     const info = E.strikeInfo(g);
+    const active = document.activeElement;
+    const focusKey = active && active.dataset && active.dataset.action
+      ? { action: active.dataset.action, id: active.dataset.id, who: active.dataset.who } : null;
     $app.innerHTML = `
       ${headerHtml()}
       <div class="layout">
@@ -449,6 +473,20 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
     $modal.innerHTML = modalHtml(info);
     const die = $modal.querySelector('.die.rolling');
     if (die && ui.modal) ui.modal.rolling = false;
+
+    // Keep keyboard focus: inside an open dialog, or back on the same control.
+    const open = !!$modal.firstElementChild;
+    $app.inert = open;
+    if (open) {
+      const btn = $modal.querySelector('.btn.primary') || $modal.querySelector('button');
+      if (btn) btn.focus({ preventScroll: true });
+    } else if (focusKey) {
+      let sel = `[data-action="${focusKey.action}"]`;
+      if (focusKey.id) sel += `[data-id="${focusKey.id}"]`;
+      if (focusKey.who) sel += `[data-who="${focusKey.who}"]`;
+      const el = $app.querySelector(sel);
+      if (el && !el.disabled) el.focus({ preventScroll: true });
+    }
   }
 
   function headerHtml() {
@@ -501,13 +539,23 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
         <p class="line num">${SN[info.stats[0]]} ${g.stats[info.stats[0]]} + ${SN[info.stats[1]]} ${g.stats[info.stats[1]]} = <b>${info.total}</b> of ${info.target} ${info.reaches ? '<span class="good-text">· enough to strike</span>' : `<span class="muted">· ${info.target - info.total} short</span>`}</p>
         <div class="meter ${info.reaches ? 'ok' : ''}" role="img" aria-label="${info.total} of ${info.target}"><span style="width:${fill}%"></span></div>
         <p class="line">Nerve roll: <b>${info.band.need}+</b> while ${info.band.name}. ${mods.length ? mods.join(' · ') : 'No modifiers yet.'}</p>
-        <div class="odds"><span class="pct num">${pct(info.chance)}</span><span>to hit: the die needs <b>${dieNeed}</b>, and a 1 always misses.${info.covers.length ? ` If you miss, ${info.covers.map((w) => P[w].name).join(' or ')} can take the fall.` : ' No Cover: a miss loses.'}</span></div>
+        ${oddsHtml(info, dieNeed)}
         <div class="actions" style="margin:0">
           <button class="btn primary" data-action="strike-open" ${can ? '' : 'disabled'}>${g.forcedStrike ? 'Strike (you must)' : 'Strike'}</button>
           ${!can && g.phase === 'start' && !g.forcedStrike && (g.pushed || g.acted) ? '<span class="muted">You can only strike at the start of a turn.</span>' : ''}
         </div>
       </div>
     </section>`;
+  }
+
+  function oddsHtml(info, dieNeed) {
+    if (!info.reaches && g.forcedStrike) {
+      return `<div class="odds"><span class="pct num bad-text">0%</span><span>You're ${info.target - info.total} short of the target. Made to strike short, the plot is foiled: there's no roll.</span></div>`;
+    }
+    if (!info.reaches) {
+      return `<div class="odds"><span class="pct num muted">—</span><span>Reach the target first. At this Pressure the nerve roll would then be <b>${pct(info.chance)}</b> (the die needs ${dieNeed}).</span></div>`;
+    }
+    return `<div class="odds"><span class="pct num">${pct(info.chance)}</span><span>to hit: the die needs <b>${dieNeed}</b>, and a 1 always misses.${info.covers.length ? ` If you miss, ${info.covers.map((w) => P[w].name).join(' or ')} can take the fall.` : ' No Cover: a miss loses.'}</span></div>`;
   }
 
   function pressureHtml() {
@@ -519,8 +567,9 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
       return `<li class="${fired ? 'fired' : ''} ${here.key === b.key ? 'here' : ''}"><span class="box">${fired ? '✓' : ''}</span><span><b>${b.name} (${b.min}${b.max > b.min ? `–${b.max}` : ''}, nerve ${b.need}+).</b> ${esc(b.effect)}</span></li>`;
     }).join('');
     const jumpy = g.crew.filter((w) => P[w].jumpy).length;
+    const endGain = Math.min(1 + jumpy, E.PRESSURE_MAX - g.pressure);
     return `<section class="panel" aria-label="Pressure">
-      <div class="panel-head"><h2>Pressure <span class="num">${g.pressure}</span> · ${here.name}</h2><span class="muted">+${1 + jumpy} at the end of this turn${jumpy ? ` (${jumpy} Jumpy)` : ''}</span></div>
+      <div class="panel-head"><h2>Pressure <span class="num">${g.pressure}</span> · ${here.name}</h2><span class="muted">${endGain ? `+${endGain} at the end of this turn${jumpy ? ` (${jumpy} Jumpy)` : ''}` : "It can't go higher than 20."}</span></div>
       <div class="track">${cells.join('')}</div>
       <div class="bandnames"><span>Calm 3+</span><span>Restless 4+</span><span>Uneasy 5+</span><span>Reckless 6+</span><span>7+</span></div>
       <ul class="effects">${items}</ul>
@@ -567,14 +616,14 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
       const any = g.market.some((w) => E.canAfford(g, w));
       let feastUi = '';
       if (!g.feastUsed && g.recruitsLeft > 0) {
-        if (ui.feastPick) {
+        if (ui.feastPick && E.canFeast(g)) {
           feastUi = `<div class="confirm">Pay the Feast with: ${E.feastSplits(g).map((s) => `<button class="btn small" data-action="feast" data-money="${s.money}" data-inf="${s.inf}">${s.money} Money + ${s.inf} Influence</button>`).join('')}<button class="btn small" data-action="feast-cancel">Cancel</button></div>`;
         } else {
           feastUi = `<button class="btn" data-action="feast" ${E.canFeast(g) ? '' : 'disabled'} title="Once per game, instead of recruiting">Hold the Feast: pay 6, −3 Pressure</button>`;
         }
       }
       body = `<div class="pool num"><span><b>${g.pool.money}</b> Money</span><span><b>${g.pool.inf}</b> Influence</span><span class="muted">${g.recruitsLeft} recruit${g.recruitsLeft === 1 ? '' : 's'} left · unspent is lost</span></div>
-        <p class="prompt">${g.recruitsLeft > 0 ? (any ? 'Recruit from the market below, or hold the Feast.' : 'You can\'t afford anyone in the market.') : 'Done recruiting.'} Then end your turn.</p>
+        <p class="prompt">${g.recruitsLeft > 0 ? (any ? `Recruit from the market below${E.canFeast(g) ? ', or hold the Feast' : ''}.` : `You can't afford anyone in the market.${E.canFeast(g) ? ' You can still hold the Feast.' : ''}`) : 'Done recruiting.'} Then end your turn.</p>
         <div class="actions"><button class="btn primary" data-action="end">End turn</button>${feastUi}</div>
         <p class="eyebrow" style="margin-bottom:6px">Played this turn</p>
         <div class="playedrow">${g.played.map((id) => cardHtml(id, { played: true, actedWith: id === g.actedWith })).join('') || '<span class="muted">Nothing.</span>'}</div>`;
@@ -687,10 +736,10 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
         </ol>
         <p><b>Lie low</b> instead of 2–5: discard your hand, nothing in it counts.</p>
         <p><b>Silence</b> once a game: remove someone and their cards, lose their bonus, +3 Pressure.</p>
-        <p><b>The strike.</b> Target: the Emperor's number, −1 per Inside, +1 after Uneasy. Nerve: d6, +1 per Blade, +1 per Preparation, −1 per rival pair; need your band's number. A 1 always misses. Miss with a Cover: they're silenced (free), you lose your Preparations, Pressure jumps to the next band, and you can strike again later. Miss without one: foiled.</p>
+        <p><b>The strike.</b> Target: the Emperor's number, −1 per Inside, +1 after Uneasy. Nerve: d6, +1 per Blade, +1 per Preparation, −1 per rival pair; need your band's number. A 1 always misses. Miss with a Cover: they're silenced (free), you lose your Preparations, Pressure jumps to the bottom of the next band (at 20 it stays, and you strike again next turn), and you can strike again later. Miss without one: foiled.</p>
         <div class="tablewrap"><table><thead><tr><th>Die needs</th><th>2 or less</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7+</th></tr></thead>
           <tbody><tr><td>Chance</td><td>83%</td><td>67%</td><td>50%</td><td>33%</td><td>17%</td><td>0%</td></tr></tbody></table></div>
-        <p class="muted">Readings this build makes where the rules are open: jumping past a band fires its effect; the strike replaces your turn, and the turn then ends as usual (Pressure +1); a Cover taking the fall doesn't use up your silence; with Dinner Invitation, the Feast takes one of your two recruits; you can silence before a voluntary strike but not before a forced one; stats stop at 10.</p>
+        <p class="muted">Readings this build makes where the rules are open: jumping past a band fires its effect; the strike replaces your turn, and the turn then ends as usual (Pressure +1); a Cover taking the fall doesn't use up your silence; with Dinner Invitation, the Feast takes one of your two recruits; you can silence before a voluntary strike but not before a forced one; reaching 20 forces a strike at the start of your next turn, even if you reach it partway through a turn; lie low is only possible before you Push; stats stop at 10.</p>
       </details>
     </section>`;
   }
@@ -704,7 +753,7 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
       return `<div class="scrim" role="dialog" aria-modal="true" aria-labelledby="mtitle"><div class="modal">
         <h2 id="mtitle">You missed</h2>
         <div class="die">${rec ? rec.roll : '?'}</div>
-        <p>Choose which Cover takes the fall. They're silenced, you lose all your Preparations, and Pressure jumps to the next band.</p>
+        <p>Choose which Cover takes the fall. They're silenced, you lose all your Preparations, and ${coverPressureText()}</p>
         <div class="actions">${g.pending.options.map((w) => `<button class="btn primary" data-action="cover" data-who="${w}">${esc(P[w].name)} (${bonusText(P[w].bonus)}${P[w].jumpy ? ', Jumpy' : ''})</button>`).join('')}</div>
       </div></div>`;
     }
@@ -722,7 +771,7 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
         </ul>
         <div class="actions">
           <button class="btn primary" data-action="strike-roll">${info.reaches ? 'Roll the die' : 'Strike anyway'}</button>
-          ${g.forcedStrike ? '' : '<button class="btn" data-action="modal-close">Not yet</button>'}
+          ${g.forcedStrike ? '' : '<button class="btn" data-action="strike-cancel">Not yet</button>'}
         </div>
       </div></div>`;
     }
@@ -731,7 +780,7 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
       let verdict, cls, text;
       if (rec.short) { verdict = 'Foiled'; cls = 'lose'; text = `You struck with ${rec.total} against a target of ${rec.target}.`; }
       else if (rec.hit) { verdict = 'The Emperor is dead'; cls = 'win'; text = `You rolled ${rec.roll}${rec.need <= 1 ? '' : `, needing ${Math.max(2, rec.need)}+`}.`; }
-      else if (rec.cover) { verdict = 'Missed'; cls = 'lose'; text = `You rolled ${rec.roll}${rec.roll === 1 ? ' (a 1 always misses)' : `, needing ${rec.need}+`}. ${rec.cover} takes the fall and is silenced. You lose your Preparations, and Pressure jumps to the next band.`; }
+      else if (rec.cover) { verdict = 'Missed'; cls = 'lose'; text = `You rolled ${rec.roll}${rec.roll === 1 ? ' (a 1 always misses)' : `, needing ${rec.need}+`}. ${rec.cover} takes the fall and is silenced. You lose your Preparations. ${pressureAfterCover(rec)}`; }
       else { verdict = 'Foiled'; cls = 'lose'; text = `You rolled ${rec.roll}${rec.roll === 1 ? ' (a 1 always misses)' : `, needing ${rec.need}+`}, and nobody was there to take the fall.`; }
       return `<div class="scrim" role="dialog" aria-modal="true" aria-labelledby="mtitle"><div class="modal">
         ${rec.short ? '' : `<div class="die ${m.rolling ? 'rolling' : ''}">${rec.roll}</div>`}
@@ -758,6 +807,12 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
     return '';
   }
 
+  function coverPressureText() {
+    if (g.pressure === E.PRESSURE_MAX) return 'Pressure stays at 20, so you must strike again on your next turn.';
+    const next = E.BANDS[E.BANDS.indexOf(E.bandOf(g.pressure)) + 1];
+    return `Pressure jumps to ${next.min} (${next.name})${next.min === E.PRESSURE_MAX ? ', so you must strike again on your next turn' : ''}.`;
+  }
+
   function summaryText() {
     const r = g.result;
     const t = r.turn;
@@ -781,7 +836,7 @@ textarea.logentry { width: 100%; min-height: 220px; font: 13px/1.4 var(--mono); 
     let strikeLine = 'none';
     if (last) {
       strikeLine = last.short
-        ? `turn ${last.turn} · band ${last.band} · forced, ${last.total} against a target of ${last.target}`
+        ? `turn ${last.turn} · band ${last.band} · forced, ${last.total} against a target of ${last.target} · Cover used? ${covers.length ? covers.join(', ') : 'no'}`
         : `turn ${last.turn} · band ${last.band} · Blades ${last.blades} · Preparations ${last.prep} · rivals ${last.rivals} · needed ${Math.max(2, last.need)}+ on the die (odds ${pct(last.chance)}) · rolled ${last.roll} · Cover used? ${covers.length ? covers.join(', ') : 'no'}`;
       if (strikes.length > 1) strikeLine += ` · ${strikes.length} strikes in all`;
     }

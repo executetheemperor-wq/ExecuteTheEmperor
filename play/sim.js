@@ -165,14 +165,18 @@ function greedy(n) {
   return failures;
 }
 
-// Determinism: same seed and moves give the same game.
+// Determinism: replaying a game's seed (as the UI's Replay button does, with
+// the Emperor passed in) and making the same moves gives the same game.
 function determinism() {
-  const a = E.newGame({ seed: 'same' });
-  const b = E.newGame({ seed: 'same' });
-  for (let k = 0; k < 40 && a.phase !== 'gameover'; k++) { greedyTurn(a, { lieLow: 0 }); greedyTurn(b, { lieLow: 0 }); }
-  const ok = JSON.stringify(a) === JSON.stringify(b);
-  console.log(`determinism: ${ok ? 'ok' : 'FAILED'}`);
-  return ok ? 0 : 1;
+  let bad = 0;
+  for (let i = 0; i < 300; i++) {
+    const a = E.newGame(i % 2 ? {} : { seed: `det-${i}` });
+    const b = E.newGame({ seed: a.seed, emperor: a.emperor });
+    for (let k = 0; k < 60 && a.phase !== 'gameover'; k++) { greedyTurn(a, { lieLow: 0 }); greedyTurn(b, { lieLow: 0 }); }
+    if (JSON.stringify(a) !== JSON.stringify(b)) bad++;
+  }
+  console.log(`determinism: ${bad ? `${bad}/300 replays FAILED` : 'ok (300 replays)'}`);
+  return bad;
 }
 
 const failures = fuzz(N) + greedy(N) + determinism();
