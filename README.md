@@ -12,8 +12,8 @@ game lives.
 deckbuilder where the deck is built by drafting co-conspirators, driven by
 a market-deckbuilder turn (D4, D5).
 **Next:** play the [paper prototype](docs/prototype/rules.md) — the card
-layer of [Sprint 1](docs/sprint-1.md), solo, about 11 turns, with a
-stand-in ending. The murder stage is parked for now.
+layer of [Sprint 1](docs/sprint-1.md): solo, 35 cards, about 10 turns, with
+a stand-in ending. The murder stage is parked for now.
 
 ---
 

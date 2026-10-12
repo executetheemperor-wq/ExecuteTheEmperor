@@ -1,5 +1,11 @@
 # Pressure
 
+> **Decided ([D6](../decisions.md)):** Pressure is the pressure on you from
+> your co-conspirators — the push to strike grows, and they get jumpy. It's
+> really sticky: unlike every other stat, it comes down in only about **two
+> ways**. The notebook's other readings (pressure on the Emperor, the
+> pressure to act quickly) are below.
+
 Pressure is the game's **master clock** and its most important global
 variable: a 0–100 meta-variable that "defines the course of the game" and is
 "an important win or lose condition". It's both **carrot and stick**.

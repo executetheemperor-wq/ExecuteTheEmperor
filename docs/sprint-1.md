@@ -1,11 +1,11 @@
 # Sprint 1 — the card layer (draft)
 
 > **Status: draft proposal.** Your direction, my fleshing-out. Strike
-> anything that's wrong. *(Chat › Notes 3–5)*
+> anything that's wrong. *(Chat › Notes 3–8)*
 >
-> **Ready to play:** a first [paper prototype](prototype/rules.md) built on
-> D4 and D5 — rules, all [69 cards](prototype/cards.md), and a
-> [playtest log](prototype/playtest-log.md).
+> **Ready to play:** a board-game-sized [paper prototype](prototype/rules.md)
+> (v0.2, [D7](decisions.md)) — one page of rules, [35 cards](prototype/cards.md)
+> and a [playtest log](prototype/playtest-log.md).
 
 ## Your call so far
 
@@ -16,6 +16,9 @@
 - **The deck is built by drafting co-conspirators.** ([D4](decisions.md))
 - **Loop B is the driver**; A and C may come in later to flesh out the
   larger game cycle. ([D5](decisions.md))
+- **Pressure is your crew pushing you to strike** — they get jumpy — and
+  it only comes down in about two ways. ([D6](decisions.md))
+- **The first prototype is board-game sized, at most.** ([D7](decisions.md))
 
 ## Goal
 
@@ -125,14 +128,16 @@ for most of these.
    ([D4](decisions.md)). *(audit
    [CA-37](audit/contradictions.md#ca-37--deckbuilder-at-heart-and-card-building-vs-cannot-add-or-remove-cards))*
 1. ~~**What is a turn?**~~ → **Loop B** ([D5](decisions.md)): draw five,
-   play, recruit one and claim one event, Pressure +1.
-2. **The first 8–10 co-conspirators** — *drafted:* [10 in the prototype](prototype/cards.md#co-conspirators-10).
-3. **The first 12–15 events** — *drafted:* [15](prototype/cards.md#events-15).
-   Under loop B they're bought from a row, not answered with a card type.
-4. **Card anatomy** — *drafted:* Money and/or Influence, an effect, and
-   sometimes a cost to play. Co-conspirators show Joins if, Cost, Standing,
-   Trait and Access. ([cards](prototype/cards.md))
-5. **The placeholder ending** — *drafted:* [the strike](prototype/rules.md#the-strike).
+   play, recruit one, Pressure +1.
+2. **The first 8–10 co-conspirators** — *drafted:* [8 in the prototype](prototype/cards.md#co-conspirators-8).
+3. **The first 12–15 events** — *cut from the first prototype*
+   ([D7](decisions.md)); v0.1 in the git history had 15.
+4. **Card anatomy** — *drafted:* Money and/or Influence, sometimes
+   Pressure. Co-conspirators show a cost, a stat bonus, and maybe Jumpy.
+   ([cards](prototype/cards.md))
+5. **The placeholder ending** — *drafted:* [the strike](prototype/rules.md#the-strike):
+   two stats against a target, then a nerve roll that gets harder as
+   Pressure climbs.
 6. **Solo or multiplayer** — *drafted as solo* to test the turn; still open
    ([Q26](open-questions.md#board-game)).
 7. **One source of randomness or two** — *drafted:* the card draw all game,
