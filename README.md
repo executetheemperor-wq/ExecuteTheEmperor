@@ -4,16 +4,19 @@
 > Recruit co-conspirators, learn his weaknesses, set the scene like a
 > chessboard, and beat the clock before the plot slips out of your hands.
 
-**Status:** 🌱 idea stage, with a first paper prototype to play. Nothing
+**Status:** 🌱 idea stage, with a paper prototype to play. Nothing
 digital is being built yet — this repo is the one place every idea for the
 game lives.
 
 **Format:** board game first ([decisions](docs/decisions.md)) — a
 deckbuilder where the deck is built by drafting co-conspirators, driven by
 a market-deckbuilder turn (D4, D5).
-**Next:** play the [paper prototype](docs/prototype/rules.md) — the card
-layer of [Sprint 1](docs/sprint-1.md): solo, 35 cards, about 10 turns, with
-a stand-in ending. The murder stage is parked for now.
+**Next:** play the [paper prototype v0.3](docs/prototype/rules.md) — the
+card layer of [Sprint 1](docs/sprint-1.md): solo, 35 cards, about 7 turns,
+with a stand-in ending. It's built on the
+[design philosophy](docs/design-philosophy.md), which came out of the
+[comparable-games research](docs/research/2026-10-12-comparable-games.md).
+The murder stage is parked for now.
 
 ---
 
@@ -59,6 +62,7 @@ once they hit a value you have to plot.
 | Path | What it is |
 |---|---|
 | [`docs/overview.md`](docs/overview.md) | The pitch, genre, setting, touchstones and design principles. |
+| [`docs/design-philosophy.md`](docs/design-philosophy.md) | v2 of the design principles: your six, plus ten rules of thumb from the research. |
 | [`docs/design/`](docs/design/) | One doc per system, written up from the notes, with gaps marked. |
 | [`docs/decisions.md`](docs/decisions.md) | Decisions made so far. |
 | [`docs/sprint-1.md`](docs/sprint-1.md) | Draft plan for the first sprint: the card layer, on paper. |

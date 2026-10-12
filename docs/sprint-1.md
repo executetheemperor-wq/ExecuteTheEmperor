@@ -4,8 +4,10 @@
 > anything that's wrong. *(Chat › Notes 3–8)*
 >
 > **Ready to play:** a board-game-sized [paper prototype](prototype/rules.md)
-> (v0.2, [D7](decisions.md)) — one page of rules, [35 cards](prototype/cards.md)
-> and a [playtest log](prototype/playtest-log.md).
+> (v0.3) — two pages of rules, [35 cards](prototype/cards.md) and a
+> [playtest log](prototype/playtest-log.md). v0.3 rebuilds v0.2 on the
+> [design philosophy](design-philosophy.md) from the comparable-games
+> research ([D8](decisions.md)).
 
 ## Your call so far
 
@@ -19,6 +21,8 @@
 - **Pressure is your crew pushing you to strike** — they get jumpy — and
   it only comes down in about two ways. ([D6](decisions.md))
 - **The first prototype is board-game sized, at most.** ([D7](decisions.md))
+- **Fold in the comparable-games research, and build the next prototype on
+  its design philosophy.** ([D8](decisions.md))
 
 ## Goal
 
@@ -132,16 +136,19 @@ for most of these.
 2. **The first 8–10 co-conspirators** — *drafted:* [8 in the prototype](prototype/cards.md#co-conspirators-8).
 3. **The first 12–15 events** — *cut from the first prototype*
    ([D7](decisions.md)); v0.1 in the git history had 15.
-4. **Card anatomy** — *drafted:* Money and/or Influence, sometimes
-   Pressure. Co-conspirators show a cost, a stat bonus, and maybe Jumpy.
+4. **Card anatomy** — *drafted:* two halves, an Action and a Resource
+   (Money, Influence, or Pressure on a bad card). Co-conspirators show a
+   cost, a stat bonus, a strike role, a rival, and maybe Jumpy.
    ([cards](prototype/cards.md))
 5. **The placeholder ending** — *drafted:* [the strike](prototype/rules.md#the-strike):
    two stats against a target, then a nerve roll that gets harder as
-   Pressure climbs.
+   Pressure climbs, tilted by your crew's roles and your Preparations.
 6. **Solo or multiplayer** — *drafted as solo* to test the turn; still open
    ([Q26](open-questions.md#board-game)).
 7. **One source of randomness or two** — *drafted:* the card draw all game,
-   and a single die roll at the very end. ([design review](design-review.md))
+   and a single die roll at the very end, with its odds printed and ways to
+   tilt it. ([design review](design-review.md),
+   [design philosophy](design-philosophy.md#5-one-roll-many-ways-to-tilt-it))
 
 ## Why park the murder *(context for later)*
 

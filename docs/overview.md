@@ -75,10 +75,15 @@ Bonus events, 3.3 Co-Conspirator Areas)*
 6. **Show the maths.** Like Spire, show the player a lot about the results
    of boosts and stats. *(OneNote › The night of the murder)*
 
+**v2:** the [design philosophy](design-philosophy.md) keeps these six and
+adds ten rules of thumb from the
+[comparable-games research](research/2026-10-12-comparable-games.md).
+
 ## Where everything lives
 
 | Doc | Covers |
 |---|---|
+| [Design philosophy](design-philosophy.md) | The six principles, plus ten rules of thumb from the research (v2) |
 | [Run structure](design/01-run-structure.md) | Phases, pathing, turns, how a run ends |
 | [Pressure](design/02-pressure.md) | The master clock / meta-variable |
 | [Stats and checks](design/03-stats-and-checks.md) | Variables, 0–100 scale, d100 checks, the two stat lists |

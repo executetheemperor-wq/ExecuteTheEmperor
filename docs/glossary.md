@@ -64,18 +64,27 @@ repo rather than words from the notes — rename freely.
 
 ## Paper prototype *(proposed)*
 
-Words used in the [Sprint 1 paper prototype](prototype/rules.md). Rename
+Words used in the [paper prototype](prototype/rules.md) (v0.3). Rename
 freely.
 
 | Term | Meaning | Doc |
 |---|---|---|
+| **Action / Resource** | The two halves of every deck card. Each turn you act with one card; the rest give their Resource. | [Rules](prototype/rules.md#reading-a-card) |
+| **Bad card** (✗) | A co-conspirator's baggage. Revealed, it adds Pressure (or costs Money); its Action trades Pressure for power. | [Cards](prototype/cards.md#co-conspirators-8) |
 | **Market** | The row of 3 face-up co-conspirators you can recruit from. | [Rules](prototype/rules.md#a-turn) |
-| **Willing / Ambitious** | The two piles of co-conspirators. Ambitious ones join the market once Pressure reaches 8. | [Cards](prototype/cards.md#co-conspirators-8) |
+| **Willing / Ambitious** | The two piles of co-conspirators. Ambitious ones join the market deck once Pressure reaches 5. | [Cards](prototype/cards.md#co-conspirators-8) |
 | **Jumpy** | A co-conspirator who adds 1 Pressure every turn. | [Cards](prototype/cards.md#co-conspirators-8) |
+| **Push** | Once a turn: take 2 Pressure to draw 2 cards. | [Rules](prototype/rules.md#a-turn) |
+| **Lie low** | Discard your hand instead of acting and recruiting; its bad cards cost nothing. | [Rules](prototype/rules.md#a-turn) |
+| **Band** | One of five steps on the Pressure track: Calm, Restless, Uneasy, Reckless, Breaking. Each sets the nerve roll and has one effect that fires the first time you reach it. | [Rules](prototype/rules.md#pressure) |
 | **The Feast** | One of the two ways to lower Pressure: once a game, pay 6 for −3. | [Rules](prototype/rules.md#pressure) |
 | **Silence** | Once a game, remove a co-conspirator and their cards, for +3 Pressure. | [Rules](prototype/rules.md#getting-rid-of-someone) |
-| **The strike** | The stand-in for the night of the murder: two stats against the Emperor's target. | [Rules](prototype/rules.md#the-strike) |
-| **Nerve roll** | The last roll; it gets harder as Pressure climbs. | [Rules](prototype/rules.md#the-strike) |
+| **Preparation** | Made by some card actions (a bribed guard, poison ready): +1 to the nerve roll each. You can hold 3. | [Rules](prototype/rules.md#the-strike) |
+| **Strike role** | A co-conspirator's job at the strike. **Blade:** +1 to the nerve roll. **Inside:** −1 to the target. **Cover:** takes the fall if you miss. | [Cards](prototype/cards.md#co-conspirators-8) |
+| **Rival** | Each co-conspirator has one. Both in your crew: −1 to the nerve roll. | [Cards](prototype/cards.md#co-conspirators-8) |
+| **Quirk** | The line on an Emperor card that bends one strike rule. | [Cards](prototype/cards.md#the-emperor-3) |
+| **The strike** | The stand-in for the night of the murder: two stats against the Emperor's target, then the nerve roll. | [Rules](prototype/rules.md#the-strike) |
+| **Nerve roll** | The one die roll in the game. Your band sets the number you need; your crew and Preparations tilt it. | [Rules](prototype/rules.md#the-strike) |
 
 ## Reputation and meta
 

@@ -2,6 +2,8 @@
 
 Paste everything below the line into a deep research chat (ChatGPT Deep Research, Claude Research, Gemini Deep Research, Perplexity, etc.).
 
+**Used 2026-10-12.** What it returned is filed as [the dossier](2026-10-12-comparable-games.md), and v0.3 of the prototype has moved on from the brief below.
+
 The Game Brief is filled in from the design docs on the `claude/busy-galileo-496ddn` branch as of 2026-10-12: decisions D1–D7, paper prototype v0.2, and the open questions list. Update it when a decision changes.
 
 ---
