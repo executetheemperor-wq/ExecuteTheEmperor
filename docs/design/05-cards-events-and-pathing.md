@@ -57,6 +57,32 @@ improve ("maybe", in the notes). *(OneNote › Basics, 5. The Gameplay Loop)*
 Like Spire, show the player a lot of information about the results of boosts
 and stats. *(OneNote › The night of the murder)*
 
+## From the research
+
+*From the [comparable-games research](../research/2026-10-12-comparable-games.md) (2026-10-12). Suggestions, not
+decisions. [Prototype v0.3](../prototype/rules.md) tries the first two.*
+
+- **A choice on every card.** *Dune: Imperium* began as "more of a pure
+  deck-builder… It was a good game… Good wasn't good enough." The fix was
+  cards with two halves: one to place a worker, one for resources when
+  revealed, played in "bite-sized turns". An **Action** half and a
+  **Resource** half would answer the card-anatomy gap below and add a
+  decision when you play, not only when you buy.
+  *([3.5](../research/2026-10-12-comparable-games.md#35-dune-imperium))*
+- **Write a "Cluttered Hand" rule early.** *Heat*'s rulebook needs one for
+  hands so full of heat cards you can't play; *Griftlands* warns against
+  arriving at the boss with "a deck full of tipsy". Plan the release valve
+  before playtesters find the dead hand.
+  *([3.3](../research/2026-10-12-comparable-games.md#33-heat-pedal-to-the-metal), [4](../research/2026-10-12-comparable-games.md#4-cross-cutting-design-themes))*
+- **"Every card should have a place"** was *Slay the Spire*'s balance goal.
+  *([3.1](../research/2026-10-12-comparable-games.md#31-slay-the-spire-and-slay-the-spire-the-board-game))*
+- **Events from history.** *The Tablet*: Commodus wrote his death list on a
+  wax tablet, and a boy carried it off as a toy. You learn you're on the
+  list, and Pressure jumps. *Forged Death List*: Aurelian's secretary
+  forged a list with real enemies, innocent names and his own, so everyone
+  on it was committed. As a once-a-run card, it spikes Pressure but stops
+  anyone ratting you out. *([5](../research/2026-10-12-comparable-games.md#5-setting-research))*
+
 ## Gaps
 
 - **The Events page is empty** — no event list yet.

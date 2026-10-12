@@ -11,6 +11,8 @@ pulled into this repo. Kept deliberately vague about personal accounts —
 | 2026-10-11 | Chat notes | The three phases, the restart/crown loop, the forum / palace map / reports for each phase | [`ideas/raw/2026-10-11-chat-notes.md`](../ideas/raw/2026-10-11-chat-notes.md) |
 | 2026-10-11 | Chat notes | Board game: pressure tokens, unlocks | [`ideas/raw/2026-10-11-chat-notes.md`](../ideas/raw/2026-10-11-chat-notes.md) |
 | 2026-10-11 | **OneNote notebook** (personal OneDrive, written 9–17 Feb 2026), exported to PDF | The main design notes: 30 pages across *Design and Ideas*, *Resources*, *Systems and Interactions* and *First Design*. The chat notes' first note is a copy of its "Basics" page. | [`ideas/raw/2026-02-onenote-notebook.md`](../ideas/raw/2026-02-onenote-notebook.md) (transcript, checked word-for-word against the PDF) and [`.pdf`](../ideas/raw/2026-02-onenote-notebook.pdf) (original) |
+| 2026-10-12 | **Deep-research dossier**, from the [research prompt](../docs/research/deep-research-prompt.md) | 25 comparable games, their design histories, Roman setting research, recommendations and a resource pack. Not your notes, so it's filed under `docs/`. | [`docs/research/2026-10-12-comparable-games.md`](../docs/research/2026-10-12-comparable-games.md), folded into the design docs |
+| 2026-10-12 | Chat notes | Notes 5–9: deck building, the turn loop, Pressure, simplify, fold in the research | [`ideas/raw/2026-10-12-chat-notes.md`](../ideas/raw/2026-10-12-chat-notes.md) |
 
 ## Still to import
 

@@ -99,6 +99,40 @@ And from the [design review](../design-review.md) *(Claude's suggestion)*: a
 cards are his moves and your choice of area and method changes the deck you
 bring.
 
+## From the research
+
+*From the [comparable-games research](../research/2026-10-12-comparable-games.md) (2026-10-12). Suggestions, not
+decisions. [Prototype v0.3](../prototype/rules.md#the-strike)'s strike
+tries the first three.*
+
+- **One roll, many ways to tilt it.** Leacock kept a final roll at Mount
+  Doom, "requiring a roll in most cases, while also giving the players
+  multiple ways to mitigate its outcome". Frodo resists better with less
+  despair, which is the same shape as your nerve roll and Pressure.
+  *([3.10](../research/2026-10-12-comparable-games.md#310-the-lord-of-the-rings-fate-of-the-fellowship))*
+- **Not a coin flip.** Paradox reworked *CK3*'s schemes because the old
+  system was "too random" and "very… binary". Use a few readable modifiers
+  you can buy, print the odds, and let a miss escalate (an escape, more
+  suspicion) rather than end the run.
+  *([3.9](../research/2026-10-12-comparable-games.md#39-crusader-kings-iii-schemes))*
+- **The crew has roles.** Each co-conspirator adds speed, secrecy or success
+  at the kill; rivals in the same plot cost you; the odds are poor without a
+  crew. That makes the strike use the deck you built, which answers the
+  "bolted on" worry in the [design review](../design-review.md).
+  *([3.9](../research/2026-10-12-comparable-games.md#39-crusader-kings-iii-schemes))*
+- **Flashbacks instead of the chessboard.** *Blades in the Dark* skips
+  planning: during the job, players pay Stress to have "already" bribed the
+  guard. If the area plan returns, plan cards could work the same way. Pay
+  Pressure or Influence mid-strike to reveal "I bribed this guard", rather
+  than placing pieces up front. *([3.13](../research/2026-10-12-comparable-games.md#313-blades-in-the-dark))*
+- **A backup method.** The poison didn't finish Commodus, so the athlete
+  Narcissus strangled him. A second method is a way to tilt the roll.
+  *([5](../research/2026-10-12-comparable-games.md#5-setting-research))*
+- **Getting away with it.** Claudius executed Chaerea: "it would have set a
+  bad precedent to let Caligula's assassins live." A post-kill succession
+  check (who does the Guard proclaim?) could decide whether you survive.
+  *([5](../research/2026-10-12-comparable-games.md#5-setting-research))*
+
 ## Gaps
 
 - **The Plotting Phase page is empty.**

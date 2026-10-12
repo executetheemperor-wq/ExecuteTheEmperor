@@ -58,6 +58,24 @@ reverse isn't guaranteed.
 
 → Decided: **board game first** ([D2](decisions.md)).
 
+## After the research (2026-10-12)
+
+The [comparable-games research](research/2026-10-12-comparable-games.md) backs all four worries, and offers a
+fix for each. The [design philosophy](design-philosophy.md) collects them;
+[prototype v0.3](prototype/rules.md) tries them.
+
+| Worry | What the comparable games say | The fix they suggest |
+|---|---|---|
+| **Breadth before a core loop** | Every team the research sourced got to a better game by cutting: Leacock's "simplest possible experiment", Kennedy's "cut ruthlessly", Klei stripping Griftlands' RPG layer, Fowers cutting a floor from Burgle Bros 2. | One experiment a week. Worry if the rules pass 4 pages before 10 playtests. |
+| **The core action is unclear** | v0.2 only has decisions when you buy. Dune: Imperium was a "good" pure deckbuilder until each card got two halves. | One choice when you play: each card is either an action or resources. |
+| **Two layers of luck** | Paradox reworked CK3's schemes for being "too random" and "binary"; Leacock kept one final roll with "multiple ways to mitigate its outcome". | One roll, odds printed, modifiers you can earn, and a miss that escalates instead of ending the run. |
+| **The murder stage bolted on** | CK3's agents each bring a role to the scheme. | The strike uses the deck you built: crew roles, and preparations made by your cards. |
+
+**One new worry.** No published deckbuilder the research found bundles a
+person's cards the way [D4](decisions.md) does. That may be the most
+original thing here, or it may need a release valve when a hand clogs.
+v0.3 tries one (lying low).
+
 ## Recommendation
 
 Distinctive and worth making. Find the one-turn loop in

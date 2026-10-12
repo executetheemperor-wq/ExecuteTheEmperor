@@ -61,6 +61,23 @@ on the throne — unless your stats and favour are high enough that it's you —
 and the succession knocks Pressure down, though not to zero.
 *(OneNote › 1.1 Pressure)*
 
+## From the research
+
+*From the [comparable-games research](../research/2026-10-12-comparable-games.md) (2026-10-12). Suggestions, not
+decisions.*
+
+- **Act breaks.** Before Matt Leacock added objective cards to *The Fate of
+  the Fellowship*, play was "one long, slow, slip into a pit of despair,
+  resolving all at once only at the very end". Completing an objective
+  "felt like an act break". A run that only builds up to Pressure 20 risks
+  the same slide. A few mid-run objectives (an intel coup, a bribed guard)
+  could pause it and feed the final roll.
+  *([3.10](../research/2026-10-12-comparable-games.md#310-the-lord-of-the-rings-fate-of-the-fellowship))*
+- **Keep waiting from paying off.** Burgle Bros' original events made it
+  "optimal for you to stay down the bottom floor". Pressure that ticks every
+  turn already guards against this. Check for it in playtests.
+  *([3.12](../research/2026-10-12-comparable-games.md#312-burgle-bros-1-and-2))*
+
 ## Gaps
 
 - What a turn is, and how many turns a run lasts.

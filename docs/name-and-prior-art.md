@@ -26,6 +26,29 @@ Worth a look, to see what's been done and how this one differs.
 | *Blood on the Clocktower* | Board game (social deduction) | Executions, and players' unreliable accounts of what happened. |
 | *SHUG* | Board game | Has an alternative "Kill the King" win; the King advances each turn like a timer. |
 
+## More comparable games (research, 2026-10-12)
+
+The [comparable-games research](research/2026-10-12-comparable-games.md) rated 25 entries
+(some group several games); its [matrix](research/2026-10-12-comparable-games.md#2-comparable-games-matrix) has them all. The ones it rated
+most useful, and where they help:
+
+| Game | Helps with |
+|---|---|
+| *Heat: Pedal to the Metal* | Bad cards that are also fuel; fast turns |
+| *Dune: Imperium* | Two-half cards: a choice on every card |
+| *Invisible, Inc.* | A one-way alarm with readable steps |
+| *Crusader Kings III* (schemes) | A murder system reworked for being "binary"; crews with roles |
+| *The Fate of the Fellowship* | One final roll, with ways to tilt it |
+| *Hostage Negotiator* | A short solo game against one antagonist |
+| *Burgle Bros* | Peek or act; guard patrols |
+| *Blades in the Dark* | Flashbacks instead of up-front planning |
+| *Griftlands* | Social choices that put status cards in your deck |
+| *Darkest Dungeon* | Stress as character |
+| *Dominion*, *Clank!*, *Slay the Spire*, *Cultist Simulator* | Deck clog, greed in the market, curses and boss intents, intel as play |
+
+It adds one detail on *Donning the Purple*: it's set in AD 193, plays 1–3,
+and you're the throne's target in a "king of the hill" game.
+
 The games **you** named as influences — Slay the Spire, Darkest Dungeon II,
 Call of Cthulhu, Five Nights at Freddy's — are in the
 [overview](overview.md#touchstones-you-named).

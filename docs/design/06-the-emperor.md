@@ -70,6 +70,35 @@ The notebook has headings ready but nothing under them:
 - 4.3 Emperor Tendencies
 - 4.4 The Emperor Stat Sheet
 
+## From the research
+
+*From the [comparable-games research](../research/2026-10-12-comparable-games.md) (2026-10-12). Suggestions, not
+decisions. One candidate answer to "how do we find out about the Emperor?"*
+
+- **Peek or act.** "A big part of Burgle is this unknown of whether to run or
+  to peek." Deal his weaknesses face down (say 3 of 6), and spend an action
+  to turn one up. *([3.12](../research/2026-10-12-comparable-games.md#312-burgle-bros-1-and-2))*
+- **Some intel lies.** The Roman sources disagree with each other: beef or
+  wine, bath or bed for Commodus; Eros or Mnestheus for Aurelian's
+  secretary. That makes an unreliable report historically honest. For
+  example, a jumpy informant's report could have a 1-in-3 chance of being
+  false. *([5](../research/2026-10-12-comparable-games.md#5-setting-research), [6](../research/2026-10-12-comparable-games.md#6-implications-for-execute-the-emperor))*
+- **Hide which, never how.** *Cultist Simulator* made "understanding the
+  game… itself the game", then spent its last month adding clues. Hide
+  *which* weaknesses he has, never how the rules work.
+  *([3.14](../research/2026-10-12-comparable-games.md#314-cultist-simulator))*
+- **A behaviour, not just a number.** *Slay the Spire* shows what enemies
+  intend to do next; *Aeon's End* and *Marvel Champions* give the boss its
+  own deck. A weakness should change how he behaves (*Creature of Habit*:
+  his route repeats), not just set a stat check.
+  *([3.1](../research/2026-10-12-comparable-games.md#31-slay-the-spire-and-slay-the-spire-the-board-game),
+  [4](../research/2026-10-12-comparable-games.md#4-cross-cutting-design-themes))*
+- **Weakness cards from history.** *Fears the Fifth Hour*: Domitian dreaded
+  the fifth hour, so the conspirators told him the sixth had come. He's
+  superstitious, and his timing can be played. *Misread Omen*: warned to
+  "Beware of Cassius!", Caligula had the wrong Cassius killed. He acts on a
+  warning, but at the wrong target. *([5](../research/2026-10-12-comparable-games.md#5-setting-research))*
+
 ## Gaps
 
 - **How intel is gained** — events, spies, co-conspirators, being present?

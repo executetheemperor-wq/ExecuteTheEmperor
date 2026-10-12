@@ -29,6 +29,28 @@ checks** (perhaps with a smaller die; see
 **co-conspirators as cards**, **intel cards**, and the **chessboard-style
 area plan** (though the Emperor's route-finding may need simplifying).
 
+## From the research
+
+*From the [comparable-games research](../research/2026-10-12-comparable-games.md) (2026-10-12). Suggestions, not
+decisions.*
+
+- **Solo first, co-op second, hidden traitors last.** *Dune: Imperium* was
+  built for 3–4 players and needed an automated rival for solo. *Heat*
+  redesigned its bots because "players didn't understand how to run them".
+  An AI rival conspirator is a big job of its own. Of the multiplayer
+  options, co-op (a shared plot, maybe with a traitor later) fits "your
+  allies are your problem" better than head-to-head.
+  *([3.5](../research/2026-10-12-comparable-games.md#35-dune-imperium), [3.3](../research/2026-10-12-comparable-games.md#33-heat-pedal-to-the-metal),
+  [4](../research/2026-10-12-comparable-games.md#4-cross-cutting-design-themes))*
+- **A short solo game against one antagonist sells.** *Hostage Negotiator*
+  is 15–30 minutes, solo, against one abductor. Its designer: "It is a
+  fast-playing, very thematic, and – most of all – fun game. I've learned
+  that those things trump old assumptions about things like player count."
+  *([3.11](../research/2026-10-12-comparable-games.md#311-hostage-negotiator-and-career))*
+- **Watch the rules length.** An early warning that systems are piling up:
+  more than 4 pages of rules before 10 playtests.
+  *([6](../research/2026-10-12-comparable-games.md#6-implications-for-execute-the-emperor))*
+
 ## Gaps
 
 - Player count — solo, competitive (rival conspirators?), co-op?

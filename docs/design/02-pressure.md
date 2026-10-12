@@ -81,6 +81,37 @@ Unlike here — where you choose when to strike until 100 — the board's
 threshold forces you. See [Board game](10-board-game.md) and
 [audit CA-43](../audit/contradictions.md#ca-43--choosing-when-to-strike-vs-being-forced-to-at-a-threshold-board-game-vs-digital).
 
+## From the research
+
+*From the [comparable-games research](../research/2026-10-12-comparable-games.md) (2026-10-12). Suggestions, not
+decisions. [Prototype v0.3](../prototype/rules.md) tries the first four.*
+
+- **Readable steps, one consequence each.** Klei found that 20 alarm levels
+  in *Invisible, Inc.* made it "unclear when the next alarm level would
+  actually become a problem". They cut it to 6 levels, each with one
+  concrete consequence the player could see coming. For Pressure, that means
+  4–5 named bands, with what each one does printed on the track. It would
+  fill the "what changes at each band" gap below.
+  *([3.7](../research/2026-10-12-comparable-games.md#37-invisible-inc))*
+- **A threshold fires once.** In *Invisible, Inc.*, bribing a guard lowered
+  the alarm, so the next level triggered again when it went back up. Klei
+  agreed it was "indeed pretty bad". The Feast mustn't be able to do the
+  same. *([3.7](../research/2026-10-12-comparable-games.md#37-invisible-inc))*
+- **Let the player spend it.** *Blades in the Dark* spends Stress on
+  flashbacks; *Heat*'s heat cards are both your fuel and your clog. A
+  **Push** (take Pressure to draw cards or refresh the market) turns the
+  clock into a temptation, not just a timer.
+  *([3.3](../research/2026-10-12-comparable-games.md#33-heat-pedal-to-the-metal), [3.13](../research/2026-10-12-comparable-games.md#313-blades-in-the-dark))*
+- **The clock should pay you.** Ambitious recruits arriving as Pressure
+  climbs already do this. In *Clank!*, buying from the market can wake the
+  dragon, so greed drives the danger. The rewards on the way should be
+  optional but tempting: strong recruits who bring jumpier cards.
+  *([3.4](../research/2026-10-12-comparable-games.md#34-clank-and-clank-catacombs), [4](../research/2026-10-12-comparable-games.md#4-cross-cutting-design-themes))*
+- **Breaking should read as character.** Darkest Dungeon's stress works
+  because people "break in different ways", not because a number went up.
+  Keep jumpy co-conspirators few, visible and dramatic.
+  *([3.8](../research/2026-10-12-comparable-games.md#38-darkest-dungeon-and-darkest-dungeon-ii))*
+
 ## Gaps
 
 - The "very certain circumstances" that save you at 100.

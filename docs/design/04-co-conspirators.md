@@ -135,6 +135,48 @@ the Emperor's head** and lead him down a path that suits the team you have.
 Socialite · military man · lout · womaniser · someone who mixes with actors ·
 poisoner · rich briber · Praetorian contact.
 
+## From the research
+
+*From the [comparable-games research](../research/2026-10-12-comparable-games.md) (2026-10-12). Suggestions, not
+decisions. [Prototype v0.3](../prototype/cards.md) tries the first four.*
+
+- **Baggage that comes from who they are.** Players accept costs they caused
+  themselves. *Dominion*'s victory cards clog your deck because you scored;
+  *Griftlands*' "Tipsy" cards arrive because you took the drink. A
+  co-conspirator's bad card should express who they are (a gossip, a
+  brawler, a debtor) and bite where their good card helps.
+  *([3.2](../research/2026-10-12-comparable-games.md#32-dominion), [3.6](../research/2026-10-12-comparable-games.md#36-griftlands))*
+- **No bad card is completely unplayable.** *Heat*'s heat cards are the
+  price of pushing hard *and* the clog in your hand. Give every bad card a
+  use, often trading Pressure for power, so drafting someone for their
+  baggage becomes a bet. *([3.3](../research/2026-10-12-comparable-games.md#33-heat-pedal-to-the-metal))*
+- **Roles at the kill.** *Crusader Kings III*'s 2024 rework cut a scheme's
+  agents to about five, each adding speed, secrecy or success. Putting "two
+  nemeses in the same plot" is punished, and the base odds are too low to
+  scheme alone. Co-conspirators could do the same at the strike.
+  *([3.9](../research/2026-10-12-comparable-games.md#39-crusader-kings-iii-schemes))*
+- **One state per person, printed on the card.** *CK3* dropped random agent
+  events as "micro-intensive"; Darkest Dungeon keeps personality to a few
+  visible states. Track at most one loyalty state per co-conspirator (say
+  Steady, Jumpy or Turned), shown on the card. That also fits
+  [D7](../decisions.md). *([3.9](../research/2026-10-12-comparable-games.md#39-crusader-kings-iii-schemes),
+  [4](../research/2026-10-12-comparable-games.md#4-cross-cutting-design-themes))*
+- **Avoid two-card combos.** *Griftlands* had to patch combo decks that
+  needed "a generator and a finisher" drawn together. Don't make one
+  co-conspirator depend on drawing another's card in the same hand.
+  *([3.6](../research/2026-10-12-comparable-games.md#36-griftlands))*
+- **Locked bundles may be new.** The research found no published
+  deckbuilder that bundles a person's cards the way [D4](../decisions.md)
+  does. That could be a genuine novelty, or a sign it needs a release valve.
+  *([6](../research/2026-10-12-comparable-games.md#6-implications-for-execute-the-emperor))*
+- **Archetypes from history.** The Praetorian officer with a grudge (Cassius
+  Chaerea, mocked by Caligula); the chamberlain who sets the scene
+  (Parthenius took the blade from the sword under Domitian's pillow); the
+  freedman with a bandaged arm (Stephanus hid a dagger in the bandages); the
+  mistress with the poison and the athlete who finishes the job (Marcia and
+  Narcissus, against Commodus); the secretary who forges a death list
+  (Aurelian's). *([5](../research/2026-10-12-comparable-games.md#5-setting-research))*
+
 ## Gaps
 
 - Party size: is there a cap?

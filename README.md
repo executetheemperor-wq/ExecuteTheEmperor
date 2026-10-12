@@ -69,6 +69,7 @@ once they hit a value you have to plot.
 | [`docs/glossary.md`](docs/glossary.md) | Working vocabulary. |
 | [`docs/resources.md`](docs/resources.md) | Godot courses and links. |
 | [`docs/name-and-prior-art.md`](docs/name-and-prior-art.md) | Is the name taken? Which games are closest? |
+| [`docs/research/`](docs/research/) | The [research prompt](docs/research/deep-research-prompt.md) and the [dossier it returned](docs/research/2026-10-12-comparable-games.md): 25 comparable games, their design histories, Roman history and a reading list. Folded into the design docs. |
 | [`ideas/raw/`](ideas/raw/) | Original notes, verbatim — the OneNote notebook (PDF + transcript) and chat notes. Never edited. |
 | [`ideas/inbox.md`](ideas/inbox.md) | Drop new ideas here. |
 | [`sources/`](sources/) | Where ideas have been found, and what's still to import. |

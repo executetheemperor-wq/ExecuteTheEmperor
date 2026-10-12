@@ -91,6 +91,22 @@ Every co-conspirator adds their own standing onto your adjusted base stats,
 **improving or worsening** some of them — an influential one raises your
 Influence, which means more and better Influence rolls. *(OneNote › 3.1 The Effect of Co-Conspirators on Stats)*
 
+## From the research
+
+*From the [comparable-games research](../research/2026-10-12-comparable-games.md) (2026-10-12). Suggestions, not
+decisions.*
+
+- **One roll that matters.** *Crusader Kings III*'s 2024 scheme rework and
+  *The Fate of the Fellowship* point the same way: allow one meaningful
+  roll, make its odds readable, and let the run move them. Card draw is
+  randomness you plan around; a die at the end should resolve a set-up you
+  built. That argues against d100 checks all through a run, on top of the
+  card draw. *([4](../research/2026-10-12-comparable-games.md#4-cross-cutting-design-themes))*
+- **Small numbers on paper.** *Slay the Spire: The Board Game* cut the
+  digital game's numbers by 10–100× (the Ironclad has 10 hit points, not
+  80). Keep single digits at the table; a digital version can scale them
+  back up. *([3.1](../research/2026-10-12-comparable-games.md#31-slay-the-spire-and-slay-the-spire-the-board-game))*
+
 ## Gaps
 
 - **One stat list.** Merge the two passes; decide what Virtue, Age, Health

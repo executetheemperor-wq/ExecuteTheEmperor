@@ -28,3 +28,7 @@ Numbering carries on from [`2026-10-11-chat-notes.md`](2026-10-11-chat-notes.md)
 ## Note 8 — Pressure is sticky
 
 > and the idea of pressure is that that is the stat that can only go down in like maybe 2 ways compared to how all the other stats do. Pressure is really sticky, it is hard to open the vent
+
+## Note 9 — fold in the research (with the dossier attached)
+
+> Check branches for latest steer and then fold in this doc, before then on a new branch incorporating design philosophy for v.2

@@ -39,6 +39,27 @@ yourself.** *(Basics)*
 
 *(OneNote › 1.1 Pressure)*
 
+## From the research
+
+*From the [comparable-games research](../research/2026-10-12-comparable-games.md) (2026-10-12). Suggestions, not
+decisions.*
+
+- **A Year of Emperors.** One campaign is one "Year": AD 69 had four
+  Emperors and 193 had five. Kill 3–4 within it to be crowned.
+  *([5](../research/2026-10-12-comparable-games.md#5-setting-research))*
+- **The book as a deck of Lessons.** Draw 3 Lesson cards that match why the
+  run failed, keep 1, and cap the kept ones at about 5. *Slay the Spire*'s
+  Ascension levels unlock in order and stop at 20; Darkest Dungeon II's
+  candles are capped. *([4](../research/2026-10-12-comparable-games.md#4-cross-cutting-design-themes))*
+- **A fixed span, with an early exit.** *Hostage Negotiator: Career* has you
+  "play ten years in the life of a negotiator — that is, if you don't retire
+  in shame sooner", with a career card each year.
+  *([3.11](../research/2026-10-12-comparable-games.md#311-hostage-negotiator-and-career))*
+- **The crown as an auction.** In 193 the Praetorians sold the empire "as if
+  it had been in some market or auction-room", and Didius Julianus raised
+  bids "by five thousand at one time". A finale could be bid for with
+  Influence banked across runs. *([5](../research/2026-10-12-comparable-games.md#5-setting-research))*
+
 ## Gaps
 
 - **Who is the young man?** The next conspirator? The player's heir? The
